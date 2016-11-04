@@ -58,3 +58,8 @@ small {
   small img {
     display: block;
     margin: 5px auto; }
+  small a#comodoTL {
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    padding-left: 6px; }
