@@ -49,3 +49,12 @@ h2 {
   line-height: 0.8em;
   margin: 60px 0 0 0;
   padding: 20px 25px; }
+
+small {
+  font-family: acumin-pro-condensed, Arial, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  font-weight: bold; }
+  small img {
+    display: block;
+    margin: 5px auto; }
