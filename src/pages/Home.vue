@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="center">
-      <h1>Hey Rob!</h1>
+      <h1><odometer speed="50" delay="1000" backup="true">Hey Rob!</odometer></h1>
       <h3>Graham Pegg (N01180081), Humber Lakeshore Campus, Computer Applications</h3>
       <p>
         Been trying to come up with an idea of what to do with this domain... Meh?
@@ -9,6 +9,14 @@
     </div>
   </div>
 </template>
+
+<script>
+  import Odometer from '../components/Odometer.vue'
+
+  export default {
+    components: { Odometer }
+  }
+</script>
 
 <style>
 * {
