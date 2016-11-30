@@ -2,7 +2,7 @@
   <div class="page">
     <div class="center">
       <h1>Hey Rob!</h1>
-      <h3>Graham Pegg, Humber Lakeshore Campus, N01180081</h3>
+      <h3>Graham Pegg (N01180081), Humber Lakeshore Campus, Computer Applications</h3>
       <p>
         Been trying to come up with an idea of what to do with this domain... Meh?
       </p>
