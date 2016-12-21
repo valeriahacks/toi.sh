@@ -1,0 +1,7 @@
+@import './sass-only/_app.scss';
+@import './sass-only/_utils.scss';
+
+body {
+  margin: 0;
+  background: darken($tertiary, 40%);
+}

@@ -1,0 +1,24 @@
+/**
+ * Pastel Colour Set
+ */
+
+$purple: #aaa9fb;
+$mauve: #dba9fa;
+$pink: #fbaaf1;
+$red: #fdaba6;
+$orange: #fbcda5;
+$yellow: #fbf5a5;
+$green: #abf6a5;
+$blue: #a1f8e9;
+
+/**
+ * Site-wide theme
+ */
+
+$primary: $red;
+$secondary: $green;
+$tertiary: $blue;
+
+$primary-bg: desaturate($primary, 30%);
+$secondary-bg: desaturate($secondary, 30%);
+$tertiary-bg: desaturate($tertiary, 30%);
