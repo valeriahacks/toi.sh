@@ -28,13 +28,17 @@ $cool2: #93f0b7;
 $cool3: #88e695;
 
 /**
+ * Greys
+ */
+
+$warmgrey: #33302c;
+$coolgrey: #2c2e33;
+$lightgrey: #f2f2f2;
+
+/**
  * Site-wide theme
  */
 
 $primary: $warm1;
 $secondary: $warm2;
 $tertiary: $warm3;
-
-$primary-bg: desaturate($primary, 50%);
-$secondary-bg: desaturate($secondary, 50%);
-$tertiary-bg: desaturate($tertiary, 50%);

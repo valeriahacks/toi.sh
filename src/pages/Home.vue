@@ -1,14 +1,14 @@
 <template>
   <div class="page">
-
+    <math></math>
   </div>
 </template>
 
 <script>
-  export default {
-    data: {
+  import Math from '../components/Math.vue'
 
-    }
+  export default {
+    components: { Math }
   }
 </script>
 
@@ -16,6 +16,6 @@
   @import '../sass/sass-only/app';
 
   .page {
-    color: $primary-bg;
+    color: $warmgrey;
   }
 </style>
