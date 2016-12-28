@@ -12,7 +12,7 @@ export default {
       settings: {
         pixelSize: 7,
         detail: 1,
-        framerate: 100,
+        framerate: 150,
         contrast: 0.075
       },
       window: {
