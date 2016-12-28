@@ -3,17 +3,19 @@
 </template>
 
 <script>
+import equations from '../equations.js'
 export default {
   data () {
     return {
       id: 'c-' + (new Date()).getTime(),
+      useEquation: Math.floor(Math.random() * (equations.length - 1)),
       interval: null,
       frame: 0,
       settings: {
         pixelSize: 7,
         detail: 1,
         framerate: 150,
-        contrast: 0.075
+        contrast: 0.4
       },
       window: {
         height: 0,
@@ -29,7 +31,7 @@ export default {
       return (this.canvas ? this.canvas.getContext('2d') : null)
     },
     canvasStyle () {
-      return 'opacity:' + this.settings.contrast / 1.5
+      return 'opacity:' + this.settings.contrast / 6
     },
     rows () {
       return (this.window.width / this.settings.pixelSize) * this.settings.detail
@@ -43,7 +45,7 @@ export default {
   },
   methods: {
     equation (x, y, n) {
-      return (~n ^ ~y & ~x) * 255
+      return equations[this.useEquation](x, y, n)
     },
     scale () {
       this.window.width = window.innerWidth
