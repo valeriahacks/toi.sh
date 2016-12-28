@@ -49,8 +49,11 @@ export default {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
     },
+    bound (v, max) {
+      return Math.floor(((v / max) * (this.settings.contrast * max)) + (max - (this.settings.contrast * max))) % max
+    },
     cellColour (v) {
-      let boundedValue = Math.floor(((v / 255) * (this.settings.contrast * 255)) + (255 - (this.settings.contrast * 255))) % 255
+      let boundedValue = this.bound(v, 255)
       return 'rgb(' + boundedValue + ', ' + boundedValue + ', ' + boundedValue + ')'
     },
     drawFrame () {

@@ -23,8 +23,12 @@
   @import '../sass/sass-only/app';
 
   .greeting {
+    display: inline-block;
     font-family: $reg;
-    margin-top: 40px;
+    background: rgba(255,255,255,0.6);
+    box-shadow: 0 6px 30px rgba(45,45,45,0.15);
+    padding: 30px;
+    margin-top: 30px;
 
     h2,
     p {
