@@ -1,7 +1,9 @@
 <template>
   <div class="page">
     <div class="greeting">
-      <h2><odometer>Hi!</odometer></h2>
+      <h2>
+        <odometer delay="500">Hi!</odometer>
+      </h2>
       <p>My name’s <em>Toish.</em></p>
     </div>
     <math></math>
