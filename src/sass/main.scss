@@ -1,7 +1,17 @@
 @import './sass-only/_app.scss';
 @import './sass-only/_utils.scss';
 
+* {
+  @include font-smoothing(on);
+}
+
 body {
   margin: 0;
   background: $lightgrey;
+  color: $warmgrey;
+  font-family: $reg;
+}
+
+.page {
+
 }
