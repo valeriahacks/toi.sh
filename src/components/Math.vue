@@ -1,5 +1,5 @@
 <template>
-  <canvas :id="id" :width="window.width" :height="window.height"></canvas>
+  <canvas :id="id" :width="window.width" :height="window.height" :style="canvasStyle"></canvas>
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
       settings: {
         pixelSize: 7,
         detail: 1,
-        framerate: 50
+        framerate: 100,
+        contrast: 0.075
       },
       window: {
         height: 0,
@@ -27,6 +28,9 @@ export default {
     ctx () {
       return (this.canvas ? this.canvas.getContext('2d') : null)
     },
+    canvasStyle () {
+      return 'opacity:' + this.settings.contrast
+    },
     rows () {
       return (this.window.width / this.settings.pixelSize) * this.settings.detail
     },
@@ -39,17 +43,21 @@ export default {
   },
   methods: {
     equation (x, y, n) {
-      return Math.floor((x - y | n) & (y + x | n))
+      return (~n ^ ~y & ~x) * 255
     },
     scale () {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
     },
+    cellColour (v) {
+      let boundedValue = Math.floor(((v / 255) * (this.settings.contrast * 255)) + (255 - (this.settings.contrast * 255))) % 255
+      return 'rgb(' + boundedValue + ', ' + boundedValue + ', ' + boundedValue + ')'
+    },
     drawFrame () {
       for (let x = 0; x < this.rows; x += this.increment) {
         for (let y = 0; y < this.columns; y += this.increment) {
           let result = this.equation(x, y, this.frame)
-          this.ctx.fillStyle = 'rgb(' + ((result % 20) + 222) + ', ' + ((result % 20) + 222) + ', ' + ((result % 20) + 222) + ')'
+          this.ctx.fillStyle = this.cellColour(result)
           this.ctx.fillRect(x * this.settings.pixelSize, y * this.settings.pixelSize, this.settings.pixelSize, this.settings.pixelSize)
         }
       }
@@ -57,7 +65,7 @@ export default {
     }
   },
   mounted () {
-    this.interval = setInterval(() => this.drawFrame(), this.settings.framerate)
+    this.interval = setInterval(this.drawFrame.bind(this), this.settings.framerate)
     this.scale()
     window.onresize = this.scale.bind(this)
   },

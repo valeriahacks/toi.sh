@@ -14,9 +14,9 @@
     props: ['trigger', 'delay', 'speed', 'backup'],
     data () {
       return {
-        chars: [],
+        interval: null,
         time: 0,
-        id: null,
+        chars: [],
         content: ''
       }
     },
@@ -30,7 +30,7 @@
       }
     },
     mounted () {
-      // Store origional text, just in case we need it.
+      // Store original text, just in case we need it.
       this.content = this.$slots.default[0].text
 
       // Remove tabs and newlines.
@@ -43,21 +43,24 @@
 
       if (this.trigger) {
         this.$watch(this.trigger, (show) => {
-          if (this.id) {
-            clearInterval(this.id)
+          if (this.interval) {
+            clearInterval(this.interval)
             this.time = 0
           }
           if (!show) {
             this.time = 0
           } else {
-            setTimeout(() => { this.id = setInterval(() => this.time++, (parseInt(this.speed) || 75)) }, (parseInt(this.delay) || 1000))
+            setTimeout(() => { this.interval = setInterval(() => this.time++, (parseInt(this.speed) || 75)) }, (parseInt(this.delay) || 1000))
           }
         })
       } else {
         setTimeout(() => {
-          this.id = setInterval(() => this.time++, 75)
+          this.interval = setInterval(() => this.time++, 75)
         }, 500)
       }
+    },
+    destroyed () {
+      clearInterval(this.interval)
     }
   }
 </script>
@@ -74,12 +77,11 @@
       >span {
         overflow: hidden;
         display: inline-block;
-        padding-bottom: 10px;
 
         >span {
           display: inline-block;
           transform: translateY(-100%);
-          transition: 1s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition: 1s transform cubic-bezier(0.19, 1, 0.22, 1);
         }
 
         &.active {
