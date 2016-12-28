@@ -22,6 +22,7 @@
 
   .greeting {
     font-family: $reg;
+    margin-top: 40px;
 
     h2,
     p {
@@ -30,8 +31,8 @@
 
     h2 {
       font-weight: 700;
-      font-size: 5rem;
-      line-height: 5rem;
+      font-size: 6rem;
+      line-height: 6rem;
     }
 
     p {

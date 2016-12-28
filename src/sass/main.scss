@@ -12,6 +12,10 @@ body {
   font-family: $reg;
 }
 
+header {
+  padding: 25px calc(25px + 3vw) 0;
+}
+
 .page {
-  padding: calc(25px + 3vw)
+  padding: 25px calc(25px + 3vw);
 }
