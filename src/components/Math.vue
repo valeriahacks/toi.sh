@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import equations from '../equations.js'
+import equations from '../js/equations.js'
+
 export default {
   data () {
     return {
