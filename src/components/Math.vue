@@ -29,7 +29,7 @@ export default {
       return (this.canvas ? this.canvas.getContext('2d') : null)
     },
     canvasStyle () {
-      return 'opacity:' + this.settings.contrast
+      return 'opacity:' + this.settings.contrast / 1.5
     },
     rows () {
       return (this.window.width / this.settings.pixelSize) * this.settings.detail

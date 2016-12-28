@@ -2,7 +2,7 @@
   <div class="page">
     <div class="greeting">
       <h2>
-        <odometer delay="500">Hi!</odometer>
+        <odometer delay="700" speed="95">Hello!</odometer>
       </h2>
       <p>My name’s <em>Toish.</em></p>
     </div>
@@ -33,13 +33,14 @@
 
     h2 {
       font-weight: 700;
-      font-size: 6rem;
-      line-height: 6rem;
+      font-size: 6.5rem;
+      line-height: 6.5rem;
     }
 
     p {
       font-size: 3rem;
       font-weight: 600;
+      margin-top: -19px;
 
       em {
         font-style: normal;
