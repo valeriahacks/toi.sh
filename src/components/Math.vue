@@ -12,7 +12,7 @@ export default {
       settings: {
         pixelSize: 7,
         detail: 1,
-        framerate: 100
+        framerate: 50
       },
       window: {
         height: 0,
@@ -57,7 +57,7 @@ export default {
     }
   },
   mounted () {
-    this.interval = setInterval(this.drawFrame.bind(this), this.framerate)
+    this.interval = setInterval(() => this.drawFrame(), this.settings.framerate)
     this.scale()
     window.onresize = this.scale.bind(this)
   },
