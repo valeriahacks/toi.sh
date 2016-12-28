@@ -12,13 +12,29 @@ $green: #abf6a5;
 $blue: #a1f8e9;
 
 /**
+ * Colour Series
+ */
+
+$warm1: #fdaba6;
+$warm2: #fbcda5;
+$warm3: #fbf5a5;
+
+$luke1: #aaa9fb;
+$luke2: #dba9fa;
+$luke3: #fbaaf1;
+
+$cool1: #a1f8e9;
+$cool2: #93f0b7;
+$cool3: #88e695;
+
+/**
  * Site-wide theme
  */
 
-$primary: $red;
-$secondary: $green;
-$tertiary: $blue;
+$primary: $warm1;
+$secondary: $warm2;
+$tertiary: $warm3;
 
-$primary-bg: desaturate($primary, 30%);
-$secondary-bg: desaturate($secondary, 30%);
-$tertiary-bg: desaturate($tertiary, 30%);
+$primary-bg: desaturate($primary, 50%);
+$secondary-bg: desaturate($secondary, 50%);
+$tertiary-bg: desaturate($tertiary, 50%);
