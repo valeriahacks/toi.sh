@@ -91,5 +91,9 @@ export default [
 /*87*/	(x, y, n) => Math.floor(Math.sin((x-y|n)&(y+x|n))*255),
 /*88*/	(x, y, n) => Math.floor(Math.tan((x-y&n)+(y+x&n))*255),
 /*89*/	(x, y, n) => Math.floor(Math.cos((x&y+n)%(y+x&n))*255),
-/*90*/	(x, y, n) => Math.floor(((x&y+n)%(y+x&n)))
+/*90*/	(x, y, n) => Math.floor(((x&y+n)%(y+x&n))),
+/*91*/	(x, y, n) => Math.floor((Math.sin(x)*y)*n^(y|x)),
+/*92*/	(x, y, n) => Math.sin((x|y|(n+100)))*255,
+/*93*/	(x, y, n) => Math.sin((x+(n*5)&y-n&(n+100)))*255,
+/*94*/	(x, y, n) => n*y<<((((n|x)<<y)|(n&x))>>x)
 ]
