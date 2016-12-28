@@ -8,6 +8,7 @@
         <strong>My name’s <em>Toish.</em></strong>
         I make software for fun.
         <small>JS (ES6) - Typescript - PHP - Haskell</small>
+        <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
       </p>
     </div>
 
@@ -77,13 +78,28 @@
           color: lighten($warmgrey, 40);
         }
 
+        a {
+          display: inline-block;
+          color: #FFF;
+          font-size: 1.5rem;
+          line-height: 40px;
+          padding: 0 15px 3px;
+          border-radius: 4px;
+          text-decoration: none;
+          background-color: $luke1;
+          transition: 0.15s background-color ease;
+          transform: translateY(-3px);
+
+          &:hover { background-color: $luke2; }
+        }
+
         em {
-          @keyframes rainbow {
+          @keyframes rainbowColor {
             33.3% { color: $luke1; }
             66.6% { color: $luke2; }
             100% { color: $luke3; }
           }
-          animation: 3s ease 0s infinite alternate rainbow;
+          animation: 3s ease 0s infinite alternate rainbowColor;
           font-style: normal;
           color: $purple;
         }
