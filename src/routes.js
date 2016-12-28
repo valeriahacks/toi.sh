@@ -1,8 +1,12 @@
-import Home from './pages/Home'
-
 export default [
   {
+    name: 'home',
     path: '/',
-    component: Home
+    component: require('./pages/Home')
+  },
+  {
+    name: 'resume',
+    path: '/resume',
+    component: require('./pages/Resume')
   }
 ]

@@ -13,7 +13,54 @@ body {
 }
 
 header {
+  display: flex;
   padding: 50px calc(25px + 3vw) 0;
+
+  nav {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+
+    a {
+      position: relative;
+      display: inline-block;
+      height: auto;
+      font-size: 1.4rem;
+      color: $warmgrey;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 6px 15px;
+
+      &::before { content: "/"; }
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 0;
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        background: currentColor;
+        transform: translateX(-50%);
+        transition: 0.3s width $expo;
+      }
+
+      &:hover {
+        &::after { width: 60%; }
+      }
+
+      &.not-ready {
+        color: lighten($warmgrey, 50);
+
+        &::after {
+          top: 24px;
+          width: 66%;
+          height: 2px;
+        }
+      }
+
+    }
+  }
 }
 
 .page {
