@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <header>
+    <header :class="($route.name === 'home' ? 'home' : 'interior')">
       <div class="logo">
-        <img src="./assets/logo.png" width="100" />
+        <img src="./assets/logo.png" />
       </div>
       <nav>
         <router-link to="/">
           Home
         </router-link>
-        <router-link to="resume" class="not-ready">
+        <router-link to="resume">
           Resumé
         </router-link>
       </nav>

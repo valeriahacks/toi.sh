@@ -15,6 +15,33 @@ body {
 header {
   display: flex;
   padding: 50px calc(25px + 3vw) 0;
+  background: rgba(255, 255, 255, 0);
+  transition: 0.4s all $expo;
+
+  &.interior {
+    background: $luke1;
+    padding: 25px calc(25px + 3vw);
+
+    .logo {
+      img {
+        width: 90px;
+      }
+    }
+
+    nav {
+      a {
+        transform: translateY(0);
+        color: $lightgrey;
+      }
+    }
+  }
+
+  .logo {
+    img {
+      width: 100px;
+      transition: 0.4s all $expo;
+    }
+  }
 
   nav {
     display: flex;
@@ -22,14 +49,17 @@ header {
     justify-content: flex-end;
 
     a {
+      display: inline-flex;
+      align-items: center;
       position: relative;
-      display: inline-block;
       height: auto;
       font-size: 1.4rem;
       color: $warmgrey;
       font-weight: bold;
       text-decoration: none;
       padding: 6px 15px;
+      transform: translateY(-10px);
+      transition: 0.4s all $expo;
 
       &::before { content: "/"; }
       &::after {
@@ -38,27 +68,16 @@ header {
         height: 1px;
         width: 0;
         position: absolute;
-        top: 40px;
+        top: 50%;
         left: 50%;
         background: currentColor;
-        transform: translateX(-50%);
+        transform: translate(-50%, 15px);
         transition: 0.3s width $expo;
       }
 
       &:hover {
         &::after { width: 60%; }
       }
-
-      &.not-ready {
-        color: lighten($warmgrey, 50);
-
-        &::after {
-          top: 24px;
-          width: 66%;
-          height: 2px;
-        }
-      }
-
     }
   }
 }
