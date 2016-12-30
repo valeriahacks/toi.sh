@@ -26,6 +26,9 @@ export default {
     },
     equation: {
       default: Math.floor(Math.random() * (equations.length - 1))
+    },
+    extraEquations: {
+      default: []
     }
   },
   data () {
@@ -62,12 +65,17 @@ export default {
     },
     increment () {
       return 1 / this.detail
+    },
+
+    // Concatinate normal equation list with custom equations from prop
+    equations () {
+      return equations.concat(this.extraEquations)
     }
   },
   methods: {
     // Calculate the result of the current function at pixel (x,y) at frame n
     calculate (x, y, n) {
-      return equations[this.equation](x, y, n)
+      return this.equations[this.equation](x, y, n)
     },
 
     // Adjust the size of the canvas element
