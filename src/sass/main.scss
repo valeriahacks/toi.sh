@@ -23,23 +23,32 @@ header {
     padding: 25px calc(25px + 3vw);
 
     .logo {
-      img {
+      svg {
         width: 90px;
+
+        path {
+          fill: #FFF !important;
+        }
       }
     }
 
     nav {
       a {
         transform: translateY(0);
-        color: $lightgrey;
+        color: #FFF;
       }
     }
   }
 
   .logo {
-    img {
+    svg {
       width: 100px;
-      transition: 0.4s all $expo;
+      transform: translateY(6px);
+      transition: 0.4s width $expo;
+
+      path {
+        transition: 0.4s fill $expo;
+      }
     }
   }
 
@@ -84,6 +93,10 @@ header {
 
 .page {
   padding: 25px calc(25px + 3vw);
+
+  &.home {
+    padding-top: 50px;
+  }
 
   &:not(.home) {
     width: 100vw;

@@ -10,9 +10,18 @@
     <button @click="equation += 1">Next</button>
     <button @click="good">Good!</button>
     <button @click="bad">Bad!</button>
+    <label>Contrast</label>
+    <input type="range" min="0" max="1" step="0.05" v-model="contrast" />
+    <label>&nbsp;| Pixel Size</label>
+    <input type="range" min="4" max="50" step="1" v-model="pixelSize" />
+    <label>&nbsp;| Detail</label>
+    <input type="range" min="1" max="2.5" step="0.1" v-model="detail" />
     <div class="out"><textarea>{{ output }}</textarea></div>
 
-    <math :equation="equation"/>
+    <math :equation="equation"
+          :contrast="contrast"
+          :pixel-size="pixelSize"
+          :detail="detail"/>
   </div>
 </template>
 
@@ -25,7 +34,10 @@
     data () {
       return {
         equation: 0,
-        equations: equations.map((fn) => ({fn, good: null}))
+        equations: equations.map((fn) => ({fn, good: null})),
+        contrast: 0.4,
+        pixelSize: 7,
+        detail: 1
       }
     },
     computed: {

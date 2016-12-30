@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "svg-inline-loader": "^0.7.1",
     "vue": "^2.0.1",
     "vue-router": "^2.0.3"
   },

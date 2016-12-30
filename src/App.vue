@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header :class="($route.name === 'home' ? 'home' : 'interior')">
-      <div class="logo">
-        <img src="./assets/logo.png" />
+      <div class="logo" v-html="require('./assets/logo.svg')">
+        <!-- SVG file injected here by webpack -->
       </div>
       <nav>
         <router-link to="/">

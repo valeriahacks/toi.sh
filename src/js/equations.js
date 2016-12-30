@@ -31,7 +31,7 @@ export default [
 /*27*/	(j, i, x) => Math.floor(Math.tan(j * i) * (Math.sin(j * i) + x / i) * 255),
 /*28*/	(j, i, x) => Math.floor(Math.sin(Math.sqrt(j) * Math.sin(Math.exp(x - j * i)) ^ j / i) < (j ^ i) / (x - Math.sin(Math.exp(x - j * i))) - Math.sin(Math.exp(x - j * i)) ? 255 : 0),
 /*29*/	(j, i, x) => Math.floor(Math.pow(Math.sqrt(j * i), Math.pow(j * i, Math.sin(j - i - x)))),
-/*30*/	(j, i, x) => j * x % (i ^ x - j),
+/*30*/	(j, i, x) => j * (x + 700) % (i ^ (x + 700) - j),
 /*31*/	(j, i, x) => j * x % (i ^ x - j) == 0 ? 255 : 0,
 /*32*/	(j, i, x) => Math.floor((i + j) % Math.sin(x * j) * 255),
 /*33*/	(j, i, x) => Math.floor(Math.sin((Math.sin(x - j / 2) > 0 ? j : i) + x) * 255),
