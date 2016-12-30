@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="page home">
     <div class="greeting">
       <h2>
         <odometer delay="700" speed="95">Hello!</odometer>
