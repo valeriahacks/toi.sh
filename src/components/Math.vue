@@ -1,10 +1,15 @@
 <template>
-  <canvas
-    :id="id"
-    :width="window.width"
-    :height="window.height"
-    :style="canvasStyle">
-  </canvas>
+  <div class="math">
+    <canvas
+      :id="id"
+      :width="window.width"
+      :height="window.height"
+      :style="canvasStyle">
+    </canvas>
+    <div class="label">
+      #{{ equation }}
+    </div>
+  </div>
 </template>
 
 <script>
@@ -122,10 +127,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  .math {
+    z-index: -2;
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .label {
+      position: fixed;
+      bottom: 8px;
+      right: 8px;
+      font-size: 0.5rem;
+      z-index: 1;
+      color: #909090;
+    }
   }
 </style>

@@ -2,10 +2,17 @@
   <div class="page home">
     <button @click="equation -= 1">Prev</button>
     <select v-model="equation">
-      <option v-for="(_this, index) in equations" :value="index">
-        {{ index }}
-        {{ (_this.good === null ? '?' : (_this.good ? '✔' : '✖')) }}
-      </option>
+      <optgroup label="Standard">
+        <option v-for="(_this, index) in equations" :value="index">
+          {{ index }}
+          {{ (_this.good === null ? '?' : (_this.good ? '✔' : '✖')) }}
+        </option>
+      </optgroup>
+      <optgroup label="Custom">
+        <option v-for="(_this, index) in extraEquations" :value="equations.length + index">
+          {{ index }}
+        </option>
+      </optgroup>
     </select>
     <button @click="equation += 1">Next</button>
     <button @click="good">Good!</button>
@@ -16,9 +23,11 @@
     <input type="range" min="4" max="50" step="1" v-model="pixelSize" />
     <label>&nbsp;| Detail</label>
     <input type="range" min="1" max="2.5" step="0.1" v-model="detail" />
+    <input v-model="newFn" />
     <div class="out"><textarea>{{ output }}</textarea></div>
 
     <math :equation="equation"
+          :extra-equations="extraEquations"
           :contrast="contrast"
           :pixel-size="pixelSize"
           :detail="detail"/>
@@ -35,6 +44,7 @@
       return {
         equation: 0,
         equations: equations.map((fn) => ({fn, good: null})),
+        newFn: '(x, y, n) => x',
         contrast: 0.4,
         pixelSize: 7,
         detail: 1
@@ -43,6 +53,16 @@
     computed: {
       current () {
         return this.equations[this.equation]
+      },
+      extraEquations () {
+        /* eslint-disable */
+        try {
+          return eval('[' + this.newFn + ']')
+        } catch (e) {
+          console.log(e)
+          return []
+        }
+        /* eslint-enable */
       },
       output () {
         var good = this.equations.filter((e) => e.good !== false)
