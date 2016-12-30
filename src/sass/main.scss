@@ -17,7 +17,6 @@ header {
   padding: 50px calc(25px + 3vw) 0;
   background: rgba(255, 255, 255, 0);
   transition: 0.4s all $expo;
-  position: fixed;
 
   &.interior {
     background: darken($luke1, 2);
