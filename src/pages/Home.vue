@@ -23,7 +23,8 @@
         <a href="http://citrusmedia.com"></a>
       </div>
     </div>
-    <math/>
+
+    <math />
   </div>
 </template>
 
@@ -36,7 +37,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../sass/sass-only/app';
 
   .page {

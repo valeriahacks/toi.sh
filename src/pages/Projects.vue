@@ -1,8 +1,9 @@
 <template>
   <div class="page">
     <h3>
-      <odometer delay="0" speed="65">Working on it...</odometer>
+      <odometer delay="0" speed="65">Projects</odometer>
     </h3>
+    <div v-html="require('../assets/svg/unfuck.svg')"></div>
   </div>
 </template>
 
@@ -16,4 +17,8 @@
 
 <style lang="scss">
   @import '../sass/sass-only/app';
+
+  svg {
+    width: 200px;
+  }
 </style>

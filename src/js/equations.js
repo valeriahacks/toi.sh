@@ -7,7 +7,7 @@ export default [
 /*3*/	(x, y, n) => (~n ^ ~y & ~x) * 255,
 /*4*/	(x, y, n) => Math.floor(Math.log(x | y & n) * n ^ 20 | Math.sqrt(x * n) * y & ~n),
 /*5*/	(x, y, i) => (x & x ^ i | y & y) * (~i * ~2888855) ^ (2 ^ x & y * i * 255) & ~i,
-/*6*/	(x, y, n) => x ^ y | (x & n) * ~y & n,
+/*6*/	(x, y, n) => x ^ y | (x & (n + 200)) * ~y & (n + 200),
 /*7*/	(x, y, n) => Math.cos(10 * n) < Math.tan(x * Math.sin(2 * y)) ? 255 : 0,
 /*8*/	(j, i, x) => Math.floor((i ^ j & x | j & i) * 255),
 /*9*/	(j, i, x) => Math.floor(Math.sqrt(0 ^ Math.sqrt(j ^ Math.sqrt(x ^ j)) & (x ^ i ^ Math.sin(i) * 255)) * 255) ^ x,

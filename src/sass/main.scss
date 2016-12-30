@@ -19,7 +19,7 @@ header {
   transition: 0.4s all $expo;
 
   &.interior {
-    background: $luke1;
+    background: darken($luke1, 2);
     padding: 25px calc(25px + 3vw);
 
     .logo {
@@ -104,5 +104,13 @@ header {
     margin: 0 auto;
     background: #FFF;
     box-shadow: 0px 4px 41px rgba(45, 37, 37, 0.08);
+  }
+
+  h3 {
+    display: block;
+    font-size: 4rem;
+    margin: 10px 0;
+    border-bottom: 12px solid;
+    line-height: 79px;
   }
 }

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <header :class="($route.name === 'home' ? 'home' : 'interior')">
-      <div class="logo" v-html="require('./assets/logo.svg')">
-        <!-- SVG file injected here by webpack -->
+      <div class="logo">
+        <router-link to="/" v-html="require('./assets/svg/logo.svg')">
+          <!-- SVG file injected here by webpack -->
+        </router-link>
       </div>
       <nav>
         <router-link to="/">
@@ -10,6 +12,9 @@
         </router-link>
         <router-link to="resume">
           Resumé
+        </router-link>
+        <router-link to="projects">
+          Projects
         </router-link>
       </nav>
     </header>
