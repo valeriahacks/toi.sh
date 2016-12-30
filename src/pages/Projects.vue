@@ -3,7 +3,7 @@
     <h3>
       <odometer delay="0" speed="65">Projects</odometer>
     </h3>
-    <div v-html="require('../assets/svg/unfuck.svg')"></div>
+    <div v-html="require('../assets/svg/unfuck.svg')"></div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
   </div>
 </template>
 
