@@ -128,6 +128,7 @@ export default {
 
 <style lang="scss" scoped>
   .math {
+    position: fixed;
     z-index: -2;
 
     canvas {
