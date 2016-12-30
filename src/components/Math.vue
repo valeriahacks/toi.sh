@@ -1,23 +1,38 @@
 <template>
-  <canvas :id="id" :width="window.width" :height="window.height" :style="canvasStyle"></canvas>
+  <canvas
+    :id="id"
+    :width="window.width"
+    :height="window.height"
+    :style="canvasStyle">
+  </canvas>
 </template>
 
 <script>
 import equations from '../js/equations.js'
 
 export default {
+  props: {
+    pixelSize: {
+      default: 7
+    },
+    detail: {
+      default: 1
+    },
+    frameRate: {
+      default: 150
+    },
+    contrast: {
+      default: 0.4
+    },
+    equation: {
+      default: Math.floor(Math.random() * (equations.length - 1))
+    }
+  },
   data () {
     return {
       id: 'c-' + (new Date()).getTime(),
-      useEquation: Math.floor(Math.random() * (equations.length - 1)),
       interval: null,
       frame: 0,
-      settings: {
-        pixelSize: 7,
-        detail: 1,
-        framerate: 150,
-        contrast: 0.4
-      },
       window: {
         height: 0,
         width: 0
@@ -25,53 +40,69 @@ export default {
     }
   },
   computed: {
+    // Set opacity based on colour depth
+    canvasStyle () {
+      return 'opacity:' + this.contrast / 6
+    },
+
+    // Canvas objects
     canvas () {
       return document.querySelector('canvas#' + this.id)
     },
     ctx () {
       return (this.canvas ? this.canvas.getContext('2d') : null)
     },
-    canvasStyle () {
-      return 'opacity:' + this.settings.contrast / 6
-    },
+
+    // Calculated states the the drawFrame() function needs
     rows () {
-      return (this.window.width / this.settings.pixelSize) * this.settings.detail
+      return (this.window.width / this.pixelSize) * this.detail
     },
     columns () {
-      return (this.window.height / this.settings.pixelSize) * this.settings.detail
+      return (this.window.height / this.pixelSize) * this.detail
     },
     increment () {
-      return 1 / this.settings.detail
+      return 1 / this.detail
     }
   },
   methods: {
-    equation (x, y, n) {
-      return equations[this.useEquation](x, y, n)
+    // Calculate the result of the current function at pixel (x,y) at frame n
+    calculate (x, y, n) {
+      return equations[this.equation](x, y, n)
     },
+
+    // Adjust the size of the canvas element
+    // (this.window.* are bound to the height and width properties
+    // of the canvas element)
     scale () {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
     },
+
+    // Scale v over max to v over contrast, then mod against max incase v > max
     bound (v, max) {
-      return Math.floor(((v / max) * (this.settings.contrast * max)) + (max - (this.settings.contrast * max))) % max
+      return Math.floor(((v / max) * (this.contrast * max)) + (max - (this.contrast * max))) % max
     },
+
+    // Return the color representing value v
     cellColour (v) {
       let boundedValue = this.bound(v, 255)
       return 'rgb(' + boundedValue + ', ' + boundedValue + ', ' + boundedValue + ')'
     },
+
+    // Draw the next or first frame to the canvas
     drawFrame () {
       for (let x = 0; x < this.rows; x += this.increment) {
         for (let y = 0; y < this.columns; y += this.increment) {
-          let result = this.equation(x, y, this.frame)
+          let result = this.calculate(x, y, this.frame)
           this.ctx.fillStyle = this.cellColour(result)
-          this.ctx.fillRect(x * this.settings.pixelSize, y * this.settings.pixelSize, this.settings.pixelSize, this.settings.pixelSize)
+          this.ctx.fillRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize)
         }
       }
       this.frame += 1
     }
   },
   mounted () {
-    this.interval = setInterval(this.drawFrame.bind(this), this.settings.framerate)
+    this.interval = setInterval(this.drawFrame.bind(this), this.frameRate)
     this.scale()
     window.onresize = this.scale.bind(this)
   },

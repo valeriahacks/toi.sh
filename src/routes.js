@@ -8,5 +8,10 @@ export default [
     name: 'resume',
     path: '/resume',
     component: require('./pages/Resume')
+  },
+  {
+    name: 'math-test',
+    path: '/math-test',
+    component: require('./pages/MathTest')
   }
 ]
