@@ -33,7 +33,7 @@ export default {
       default: Math.floor(Math.random() * (equations.length - 1))
     },
     extraEquations: {
-      default: []
+      default: () => []
     }
   },
   data () {
