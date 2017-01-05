@@ -7,16 +7,20 @@ export default [
   {
     name: 'resume',
     path: '/resume',
-    component: require('./pages/Resume')
+    component: view('Resume')
   },
   {
     name: 'projects',
     path: '/projects',
-    component: require('./pages/Projects')
+    component: view('Projects')
   },
   {
     name: 'math-test',
     path: '/math-test',
-    component: require('./pages/MathTest')
+    component: view('MathTest')
   }
 ]
+
+function view (route) {
+  return (resolve) => { require(['./pages/' + route + '.vue'], resolve) }
+}
