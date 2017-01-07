@@ -13,9 +13,6 @@
         <router-link to="resume">
           Resumé
         </router-link>
-        <router-link to="projects">
-          Projects
-        </router-link>
       </nav>
     </header>
     <router-view/>
