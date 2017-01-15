@@ -1,6 +1,6 @@
 <template>
   <div class="page home">
-	<h3>tread carefully.</h3>
+	<h3>tread carefully. (please)</h3>
     <button @click="equation -= 1">Prev</button>
     <select v-model="equation">
       <optgroup label="Standard">
