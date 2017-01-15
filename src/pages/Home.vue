@@ -19,9 +19,9 @@
       <div class="block twitter">
         <a href="http://twitter.com/toishpanda"></a>
       </div>
-      <div class="block citrus">
+      <!--div class="block citrus">
         <a href="http://citrusmedia.com"></a>
-      </div>
+      </div-->
     </div>
 
     <math />
