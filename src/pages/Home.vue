@@ -115,6 +115,7 @@
         height: 175px;
         margin: 15px;
         position: relative;
+        border: 1px solid #FFF;
 
         @media screen and (max-width: 460px) {
           flex: 1 1 175px;
