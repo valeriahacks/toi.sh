@@ -25,10 +25,6 @@ header {
     .logo {
       svg {
         width: 90px;
-
-        path {
-          fill: #FFF !important;
-        }
       }
     }
 
@@ -48,6 +44,7 @@ header {
 
       path {
         transition: 0.4s fill $expo;
+        fill: #FFF !important;
       }
     }
   }

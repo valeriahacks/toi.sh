@@ -51,6 +51,7 @@
       h2,
       p {
         margin: 0;
+        color: #FFF;
       }
 
       h2 {
@@ -63,20 +64,17 @@
         font-size: 2.3rem;
         margin-top: -9px;
         line-height: 47px;
-        color: lighten($warmgrey, 20);
 
         strong {
           display: block;
           font-size: 3rem;
           font-weight: 600;
-          color: $warmgrey;
         }
 
         small {
           display: block;
           font-size: 1.5rem;
           margin-top: -5px;
-          color: lighten($warmgrey, 40);
         }
 
         a {
@@ -87,22 +85,16 @@
           padding: 0 15px 3px;
           border-radius: 4px;
           text-decoration: none;
-          background-color: $luke1;
-          transition: 0.15s background-color ease;
+          border: 1px solid #FFF;
+          transition: 0.45s transform ease;
           transform: translateY(-3px);
 
-          &:hover { background-color: $luke2; }
+          &:hover { transform: translateY(-3px); }
         }
 
         em {
-          @keyframes rainbowColor {
-            33.3% { color: $luke1; }
-            66.6% { color: $luke2; }
-            100% { color: $luke3; }
-          }
-          animation: 3s ease 0s infinite alternate rainbowColor;
           font-style: normal;
-          color: $purple;
+          font-weight: 800;
         }
       }
     }

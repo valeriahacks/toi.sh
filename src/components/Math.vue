@@ -127,14 +127,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import '../sass/sass-only/_app.scss';
+
   .math {
     position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
     z-index: -2;
 
-    canvas {
-      position: fixed;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
       top: 0;
       left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      background: linear-gradient(45deg, $luke1, $luke3);
+      mix-blend-mode: multiply;
+
+      @supports not (mix-blend-mode: multiply) {
+        opacity: 0.2;
+      }
+    }
+
+    canvas {
+      position: absolute;
       z-index: 0;
     }
 
