@@ -7,7 +7,15 @@
       <p>
         <strong>My name’s <em>Toish.</em></strong>
         I make software for fun.
-        <small>JS (ES6) - Typescript - PHP - Haskell</small>
+        <small>
+          <span>JS (ES6)</span>
+          -
+          <span>Typescript</span>
+          -
+          <span>PHP</span>
+          -
+          <span>Haskell</span>
+        </small>
         <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
       </p>
     </div>
@@ -48,6 +56,10 @@
       flex: 1 0 320px;
       font-family: $reg;
 
+      @media screen and (max-width: 895px) {
+        margin-bottom: 50px;
+      }
+
       h2,
       p {
         margin: 0;
@@ -73,23 +85,55 @@
 
         small {
           display: block;
-          font-size: 1.5rem;
-          margin-top: -5px;
+          font-size: 1.27rem;
+          line-height: 26px;
+          margin: 10px 0 15px;
+
+          span {
+            display: inline-block;
+            padding: 0 7px 2px;
+            color: $luke1;
+            background: #FFF;
+            border-radius: 5px;
+          }
         }
 
         a {
+          position: relative;
           display: inline-block;
           color: #FFF;
           font-size: 1.5rem;
           line-height: 40px;
           padding: 0 15px 3px;
-          border-radius: 4px;
           text-decoration: none;
           border: 1px solid #FFF;
-          transition: 0.45s transform ease;
-          transform: translateY(-3px);
+          border-radius: 5px;
+          transform: translateY(0px);
 
-          &:hover { transform: translateY(-3px); }
+          &:hover {
+            transform: translateY(5px);
+
+            &::after {
+              bottom: -2px;
+            }
+          }
+
+          &:active {
+            background: #FFF;
+            color: $luke1;
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            bottom: -7px;
+            width: 100%;
+            border: inherit;
+            border-radius: inherit;
+          }
         }
 
         em {
@@ -100,12 +144,13 @@
     }
 
     .blocks {
-      flex: 1 1 640px;
+      flex: 1 1 470px;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
 
-      @media screen and (max-width: 1075px) {
+      @media screen and (max-width: 895px) {
+        flex: 1 1 100%;
         margin: 30px -15px;
         justify-content: flex-start !important;
       }

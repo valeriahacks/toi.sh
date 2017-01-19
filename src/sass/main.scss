@@ -31,7 +31,6 @@ header {
     nav {
       a {
         transform: translateY(0);
-        color: #FFF;
       }
     }
   }
@@ -60,7 +59,7 @@ header {
       position: relative;
       height: auto;
       font-size: 1.4rem;
-      color: $warmgrey;
+      color: #FFF;
       font-weight: bold;
       text-decoration: none;
       padding: 6px 15px;
