@@ -55,5 +55,6 @@ export default [
 /*52*/	(x, y, n) => Math.floor(Math.sin(x) * y * n ^ (y | x)),
 /*53*/	(x, y, n) => Math.sin(x | y | n + 100) * 255,
 /*54*/	(x, y, n) => Math.sin(x + n * 5 & y - n & n + 100) * 255,
-/*55*/	(x, y, n) => n * y << (((n | x) << y | n & x) >> x)
+/*55*/	(x, y, n) => n * y << (((n | x) << y | n & x) >> x),
+/*56*/  (x, y, n) => n&x|y-x^n*(x|y)
 ]
