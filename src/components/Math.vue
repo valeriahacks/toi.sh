@@ -6,6 +6,7 @@
       :height="window.height"
       :style="canvasStyle">
     </canvas>
+    <undulator />
     <div class="label">
       #{{ equation }}
     </div>
@@ -13,7 +14,11 @@
 </template>
 
 <script>
+// Eqution Hashmap
 import equations from '../js/equations.js'
+
+// Components
+import Undulator from '../components/Undulator.vue'
 
 export default {
   props: {
@@ -122,11 +127,12 @@ export default {
   destroyed () {
     clearInterval(this.interval)
     window.onscroll = null
-  }
+  },
+  components: { Undulator }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../sass/sass-only/_app.scss';
 
   .math {

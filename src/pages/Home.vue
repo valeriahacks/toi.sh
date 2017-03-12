@@ -45,7 +45,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import '../sass/sass-only/app';
 
   .page {
