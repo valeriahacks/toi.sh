@@ -1,5 +1,5 @@
 <template>
-  <div class="undulator" :style="maxHeight">
+  <div class="undulator" :style="containerCSS">
     <svg v-for="(line, key) in lines" :style="lineCSS(line, key)">
       <path
         :d="line.top"/>
@@ -26,7 +26,7 @@
         frame: 0,
         stream: [],
         config: {
-          width: 18,
+          width: 24,
           max: 5,
           animation: {
             strength: 4,
@@ -42,8 +42,12 @@
       lines () {
         return this.stream.map(this.determineLine)
       },
-      maxHeight () {
-        return 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px'
+      containerCSS () {
+        let out = 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px;'
+        return out
+      },
+      widthRatio () {
+        return this.config.width / 18
       }
     },
     methods: {
@@ -57,7 +61,9 @@
       },
       lineCSS (line, key) {
         let top = line.height + this.animationEffect(key)
-        return 'transform: translateY(' + top + 'px)'
+        let out = 'transform: translateY(' + top + 'px) scale(' + this.widthRatio + ');'
+        out += 'width: ' + this.config.width + 'px'
+        return out
       },
       makeLine (number, top) {
         return {
@@ -119,8 +125,10 @@
 <style lang="scss">
   .undulator {
     position: absolute;
-    z-index: 99999999999;
     bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: 99999999999;
     overflow: hidden;
     display: flex;
 
@@ -131,9 +139,7 @@
       height: 500px;
       width: 18px;
       transform-origin: top left;
-      transform: scale(1);
-      padding-left: 0;
-      transition: top 0.1s ease;
+      transform: translateY(0) scale(1);
 
       rect,
       path {
