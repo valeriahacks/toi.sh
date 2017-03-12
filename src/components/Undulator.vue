@@ -24,7 +24,7 @@
     data () {
       return {
         frame: 0,
-        stream: [],
+        windowWidth: 0,
         config: {
           width: 24,
           max: 5,
@@ -37,7 +37,14 @@
     },
     computed: {
       canFit () {
-        return Math.ceil(window.innerWidth / this.config.width)
+        return Math.ceil(this.windowWidth / this.config.width)
+      },
+      stream () {
+        let out = []
+        for (let i = 0; i < this.canFit; i++) {
+          out.push(this.getValidNumber(out.slice(-1)[0]))
+        }
+        return out
       },
       lines () {
         return this.stream.map(this.determineLine)
@@ -55,6 +62,9 @@
         var out = Math.floor(Math.random() * this.config.max)
         if (out === last) return this.getValidNumber(last)
         return out
+      },
+      scale () {
+        this.windowWidth = window.innerWidth
       },
       animationEffect (key) {
         return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key)
@@ -114,10 +124,10 @@
       }
     },
     mounted () {
-      for (let i = 0; i < this.canFit; i++) {
-        this.stream.push(this.getValidNumber(this.stream.slice(-1)[0]))
-      }
       setInterval(() => this.frame++, 100)
+
+      this.scale()
+      window.addEventListener('resize', this.scale.bind(this))
     }
   }
 </script>
@@ -137,7 +147,6 @@
       position: relative;
       top: 0;
       height: 500px;
-      width: 18px;
       transform-origin: top left;
       transform: translateY(0) scale(1);
 

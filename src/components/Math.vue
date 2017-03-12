@@ -122,7 +122,7 @@ export default {
   mounted () {
     this.interval = setInterval(this.drawFrame.bind(this), this.frameRate)
     this.scale()
-    window.onresize = this.scale.bind(this)
+    window.addEventListener('resize', this.scale.bind(this))
   },
   destroyed () {
     clearInterval(this.interval)
