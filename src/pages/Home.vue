@@ -27,6 +27,7 @@
       <p>
         Under a bit of construction...
       </p>
+			<img src="~assets/panda.jpg" style="width: 320px; display: block; margin: 95px auto 10px;" />
     </main>
   </div>
 </template>
