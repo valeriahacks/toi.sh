@@ -21,6 +21,13 @@
     </div>
 
     <math />
+
+    <main>
+      <h3>Hi</h3>
+      <p>
+        Under a bit of construction...
+      </p>
+    </main>
   </div>
 </template>
 
@@ -39,6 +46,17 @@
   .page {
     display: flex;
     flex-wrap: wrap;
+
+    main {
+      position: absolute;
+      top: calc(100vh + 30px);
+      left: 50vw;
+      transform: translateX(-50%);
+      width: 100vw;
+      max-width: 970px;
+      padding: 55px 35px 105px;
+      box-sizing: border-box;
+    }
 
     .greeting {
       flex: 1 0 320px;
