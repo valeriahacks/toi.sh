@@ -20,18 +20,6 @@
       </p>
     </div>
 
-    <div class="blocks">
-      <div class="block github">
-        <a href="http://github.com/toish"></a>
-      </div>
-      <div class="block twitter">
-        <a href="http://twitter.com/toishpanda"></a>
-      </div>
-      <!--div class="block citrus">
-        <a href="http://citrusmedia.com"></a>
-      </div-->
-    </div>
-
     <math />
   </div>
 </template>
@@ -140,42 +128,6 @@
           font-style: normal;
           font-weight: 800;
         }
-      }
-    }
-
-    .blocks {
-      flex: 1 1 470px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-
-      @media screen and (max-width: 895px) {
-        flex: 1 1 100%;
-        margin: 30px -15px;
-        justify-content: flex-start !important;
-      }
-
-      .block {
-        flex: 0 0 175px;
-        height: 175px;
-        margin: 15px;
-        position: relative;
-        border: 1px solid #FFF;
-
-        @media screen and (max-width: 460px) {
-          flex: 1 1 175px;
-          background-size: 100px !important;
-        }
-
-        a {
-          display: block;
-          height: 100%;
-          width: 100%;
-        }
-
-        &.github { background: url('../assets/github.png') center/50% no-repeat $luke1; }
-        &.twitter { background: url('../assets/twitter.png') center/50% no-repeat $luke2; }
-        &.citrus { background: url('../assets/citrus.png') center/60% no-repeat $luke3; }
       }
     }
   }
