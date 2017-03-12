@@ -93,7 +93,7 @@ export default {
     // of the canvas element)
     scale () {
       this.window.width = window.innerWidth
-      this.window.height = window.innerHeight
+      this.window.height = window.innerHeight + 30
     },
 
     // Scale v over max to v over contrast, then mod against max incase v > max
@@ -136,10 +136,10 @@ export default {
   @import '../sass/sass-only/_app.scss';
 
   .math {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: calc(100vh + 30px);
     width: 100vw;
     z-index: -2;
 

@@ -10,11 +10,6 @@ export default [
     component: view('Resume')
   },
   {
-    name: 'utest',
-    path: '/utest',
-    component: view('utest')
-  },
-  {
     name: 'projects',
     path: '/projects',
     component: view('Projects')

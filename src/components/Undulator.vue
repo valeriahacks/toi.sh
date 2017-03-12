@@ -1,5 +1,5 @@
 <template>
-  <div class="undulator">
+  <div class="undulator" :style="maxHeight">
     <svg v-for="(line, key) in lines" :style="lineCSS(line, key)">
       <path
         :d="line.top"/>
@@ -27,7 +27,7 @@
         stream: [],
         config: {
           width: 18,
-          max: 6,
+          max: 5,
           animation: {
             strength: 4,
             speed: 0.3
@@ -41,6 +41,9 @@
       },
       lines () {
         return this.stream.map(this.determineLine)
+      },
+      maxHeight () {
+        return 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px'
       }
     },
     methods: {
@@ -117,10 +120,9 @@
   .undulator {
     position: absolute;
     z-index: 99999999999;
-    top: calc(100vh - 70px);
+    bottom: 0;
     overflow: hidden;
     display: flex;
-    background: black;
 
     svg {
       display: block;

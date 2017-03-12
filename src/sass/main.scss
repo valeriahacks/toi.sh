@@ -90,10 +90,6 @@ header {
 .page {
   padding: 25px calc(25px + 3vw);
 
-  &.home {
-    padding-top: 50px;
-  }
-
   &:not(.home) {
     width: 100vw;
     max-width: 970px;
