@@ -15,10 +15,10 @@
 
 <script>
 // Eqution Hashmap
-import equations from '../js/equations.js'
+import equations from '../../js/equations.js'
 
 // Components
-import Undulator from '../components/Undulator.vue'
+import Undulator from './Undulator.vue'
 
 export default {
   props: {
@@ -133,7 +133,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../sass/sass-only/_app.scss';
+  @import '../../sass/sass-only/_app.scss';
 
   .math {
     position: absolute;

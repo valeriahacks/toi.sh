@@ -33,7 +33,7 @@
 </template>
 
 <script>
-  import Math from '../components/Math.vue'
+  import Math from '../components/Math/Math.vue'
   import Odometer from '../components/Odometer.vue'
 
   export default {

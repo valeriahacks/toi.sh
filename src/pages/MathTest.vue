@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import Math from '../components/Math.vue'
+  import Math from '../components/Math/Math.vue'
   import equations from '../js/equations.js'
 
   export default {
