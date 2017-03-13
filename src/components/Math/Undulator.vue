@@ -136,7 +136,8 @@
   .undulator {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    left: 24px;
+    width: calc(100% - 48px);
     overflow: hidden;
     z-index: 99999999999;
     overflow: hidden;

@@ -8,8 +8,10 @@
 body {
   margin: 0;
   background: #FFF;
+  border: 24px solid #FFF;
   color: $warmgrey;
   font-family: $reg;
+  min-height: 100vh;
 }
 
 header {
