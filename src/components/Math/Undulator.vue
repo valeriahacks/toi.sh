@@ -86,22 +86,22 @@
         // If first line
         if (key === 0) {
           if (stream[key + 1] < number) {
-            return this.makeLine(number, tops.falling)
+            return this.makeLine(number, tops.spire)
           }
 
           if (stream[key + 1] > number) {
-            return this.makeLine(number, tops.rising)
+            return this.makeLine(number, tops.pit)
           }
         }
 
         // If last line
         if (key >= stream.length - 1) {
           if (stream[key - 1] < number) {
-            return this.makeLine(number, tops.rising)
+            return this.makeLine(number, tops.spire)
           }
 
           if (stream[key - 1] > number) {
-            return this.makeLine(number, tops.falling)
+            return this.makeLine(number, tops.pit)
           }
         }
 
