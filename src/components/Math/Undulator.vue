@@ -20,6 +20,11 @@
     rising: 'M18,18V0v0C18,5,14,9,9,9H9H9C4,9,0,13,0,18V18'
   }
 
+  const FIRST = Symbol('first')
+  const SECOND = Symbol('second')
+  const SECONDLAST = Symbol('secondlast')
+  const LAST = Symbol('last')
+
   export default {
     data () {
       return {
@@ -28,6 +33,7 @@
         config: {
           width: 24,
           max: 5,
+          bodyBorder: 24,
           animation: {
             strength: 4,
             speed: 0.3
@@ -41,9 +47,14 @@
       },
       stream () {
         let out = []
-        for (let i = 0; i < this.canFit; i++) {
+        out.push(this.getValidNumber(0, FIRST))
+        out.push(this.getValidNumber(out.slice(-1)[0], SECOND))
+        for (let i = 2; i < this.canFit - 2; i++) {
           out.push(this.getValidNumber(out.slice(-1)[0]))
         }
+        out.push(this.getValidNumber(out.slice(-1)[0], SECONDLAST))
+        out.push(this.getValidNumber(out.slice(-1)[0], LAST))
+
         return out
       },
       lines () {
@@ -51,6 +62,8 @@
       },
       containerCSS () {
         let out = 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px;'
+        out += 'left: ' + this.config.bodyBorder + 'px;'
+        out += 'width: calc(100% - ' + (this.config.bodyBorder * 2) + 'px);'
         return out
       },
       widthRatio () {
@@ -58,13 +71,34 @@
       }
     },
     methods: {
-      getValidNumber (last) {
+      getValidNumber (last, flag) {
         var out = Math.floor(Math.random() * this.config.max)
-        if (out === last) return this.getValidNumber(last)
-        return out
+
+        if (flag === undefined) {
+          if (out === last) return this.getValidNumber(last)
+          return out
+        } else {
+          switch (flag) {
+            case FIRST:
+              // First number can't be the maximum size, so second number can be larger
+              return Math.floor(Math.random() * (this.config.max - 1))
+            case SECOND:
+              // Second number must be larger than first
+              if (out <= last) return this.getValidNumber(last, SECOND)
+              return out
+            case SECONDLAST:
+              // Second last number can't be zero, so last can be less than second last
+              if (this.config.max - 1 === last) return this.config.max - 2
+              return this.config.max - 1
+            case LAST:
+              // Last number must be smaller than second last
+              if (out >= last) return last - 1
+              return out
+          }
+        }
       },
       scale () {
-        this.windowWidth = window.innerWidth
+        this.windowWidth = (window.innerWidth - 48)
       },
       animationEffect (key) {
         return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key)
@@ -84,26 +118,10 @@
       },
       determineLine (number, key, stream) {
         // If first line
-        if (key === 0) {
-          if (stream[key + 1] < number) {
-            return this.makeLine(number, tops.spire)
-          }
-
-          if (stream[key + 1] > number) {
-            return this.makeLine(number, tops.pit)
-          }
-        }
+        if (key === 0) return this.makeLine(number, tops.pit)
 
         // If last line
-        if (key >= stream.length - 1) {
-          if (stream[key - 1] < number) {
-            return this.makeLine(number, tops.spire)
-          }
-
-          if (stream[key - 1] > number) {
-            return this.makeLine(number, tops.pit)
-          }
-        }
+        if (key >= stream.length - 1) return this.makeLine(number, tops.pit)
 
         // If line in the middle
         if ((stream[key - 1] > number) && (stream[key + 1] < number)) {
@@ -121,6 +139,8 @@
         if ((stream[key - 1] < number) && (stream[key + 1] < number)) {
           return this.makeLine(number, tops.spire)
         }
+
+        console.warn('ahh', key, stream[key - 1], number)
       }
     },
     mounted () {
@@ -136,8 +156,6 @@
   .undulator {
     position: absolute;
     bottom: 0;
-    left: 24px;
-    width: calc(100% - 48px);
     overflow: hidden;
     z-index: 99999999999;
     overflow: hidden;
