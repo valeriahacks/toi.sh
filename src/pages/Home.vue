@@ -1,26 +1,50 @@
 <template>
   <div class="page home">
-    <div class="greeting">
-      <h2>
-        <odometer delay="700" speed="95">Hello!</odometer>
-      </h2>
-      <p>
-        <strong>My name’s <em>Toish.</em></strong>
-        I make software for fun.
-        <small>
-          <span>JS (ES6)</span>
-          -
-          <span>Typescript</span>
-          -
-          <span>PHP</span>
-          -
-          <span>Haskell</span>
-        </small>
-        <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
-      </p>
-    </div>
+    <slider>
+      <slide gradient-from="#aaa9fb" gradient-to="#fbaaf1">
+        <div class="greeting">
+          <h2>
+            <odometer delay="700" speed="95">Hello!</odometer>
+          </h2>
+          <p>
+            <strong>My name’s <em>Toish.</em></strong>
+            I make software for fun.
+            <small>
+              <span>JS (ES6)</span>
+              -
+              <span>Typescript</span>
+              -
+              <span>PHP</span>
+              -
+              <span>Haskell</span>
+            </small>
+            <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
+          </p>
+        </div>
+      </slide>
 
-    <math />
+      <slide gradient-from="#a1f8e9" gradient-to="#88e695">
+        <div class="greeting">
+          <h2>
+            <odometer delay="700" speed="95">Hello!</odometer>
+          </h2>
+          <p>
+            <strong>My name’s <em>Toish.</em></strong>
+            I make software for fun.
+            <small>
+              <span>JS (ES6)</span>
+              -
+              <span>Typescript</span>
+              -
+              <span>PHP</span>
+              -
+              <span>Haskell</span>
+            </small>
+            <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
+          </p>
+        </div>
+      </slide>
+    </slider>
 
     <main>
       <h3>Hi</h3>
@@ -33,11 +57,12 @@
 </template>
 
 <script>
-  import Math from '../components/Math.vue'
+  import Slider from '../components/Slider/Slider.vue'
+  import Slide from '../components/Slider/Slide.vue'
   import Odometer from '../components/Odometer.vue'
 
   export default {
-    components: { Math, Odometer }
+    components: { Slider, Slide, Odometer }
   }
 </script>
 

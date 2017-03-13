@@ -1,5 +1,6 @@
 <template>
   <div class="math">
+    <div class="colour-layer" :style="'background: linear-gradient(45deg, ' + gradientFrom + ', ' + gradientTo + ');'"></div>
     <canvas
       :id="id"
       :width="window.width"
@@ -7,9 +8,6 @@
       :style="canvasStyle">
     </canvas>
     <undulator />
-    <div class="label">
-      #{{ equation }}
-    </div>
   </div>
 </template>
 
@@ -39,6 +37,12 @@ export default {
     },
     extraEquations: {
       default: () => []
+    },
+    gradientFrom: {
+      default: '#aaa9fb'
+    },
+    gradientTo: {
+      default: '#fbaaf1'
     }
   },
   data () {
@@ -143,8 +147,7 @@ export default {
     width: 100vw;
     z-index: -2;
 
-    &::after {
-      content: "";
+    .colour-layer {
       position: absolute;
       display: block;
       top: 0;
@@ -152,8 +155,8 @@ export default {
       height: 100%;
       width: 100%;
       z-index: 1;
-      background: linear-gradient(45deg, $luke1, $luke3);
       mix-blend-mode: multiply;
+      transition: background 1s $expo;
 
       @supports not (mix-blend-mode: multiply) {
         opacity: 0.2;
@@ -163,15 +166,6 @@ export default {
     canvas {
       position: absolute;
       z-index: 0;
-    }
-
-    .label {
-      position: fixed;
-      bottom: 8px;
-      right: 8px;
-      font-size: 0.5rem;
-      z-index: 1;
-      color: #909090;
     }
   }
 </style>

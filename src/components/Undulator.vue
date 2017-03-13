@@ -26,7 +26,7 @@
         frame: 0,
         windowWidth: 0,
         config: {
-          width: 24,
+          width: 25,
           max: 5,
           animation: {
             strength: 4,
