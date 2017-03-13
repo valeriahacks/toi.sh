@@ -142,6 +142,9 @@ export default {
     height: calc(100vh + 30px);
     width: 100vw;
     z-index: -2;
+	  border-top-left-radius: 60px;
+	  border-top-right-radius: 60px;
+		overflow: hidden;
 
     &::after {
       content: "";

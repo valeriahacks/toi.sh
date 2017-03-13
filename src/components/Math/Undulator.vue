@@ -98,7 +98,7 @@
         }
       },
       scale () {
-        this.windowWidth = (window.innerWidth - 48)
+        this.windowWidth = (window.innerWidth - (this.config.bodyBorder * 2))
       },
       animationEffect (key) {
         return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key)

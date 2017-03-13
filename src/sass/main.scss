@@ -9,6 +9,8 @@ body {
   margin: 0;
   background: #FFF;
   border: 24px solid #FFF;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
   color: $warmgrey;
   font-family: $reg;
   min-height: 100vh;
