@@ -20,7 +20,7 @@
       </p>
     </div>
 
-    <math />
+    <math pixel-size="9" />
 
     <main>
       <p>
