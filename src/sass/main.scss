@@ -110,9 +110,11 @@ header {
     line-height: 79px;
   }
 
-  >p {
-    font-family: $body;
-    line-height: 25px;
-    font-size: 0.9rem;
+  main {
+    p {
+      font-family: $body;
+      line-height: 25px;
+      font-size: 0.9rem;
+    }
   }
 }
