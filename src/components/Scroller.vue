@@ -57,10 +57,24 @@
       },
       next () {
         this.i = (this.i + 1) % this.max
+        this.resetTimer()
       },
       prev () {
         this.i = ((this.i - 1 % this.max) + this.max) % this.max
+        this.resetTimer()
+      },
+      setTimer () {
+        this.timer = setInterval(() => {
+          this.next()
+        }, 2000)
+      },
+      resetTimer () {
+        clearInterval(this.timer)
+        this.setTimer()
       }
+    },
+    mounted () {
+      this.setTimer()
     }
   }
 </script>
