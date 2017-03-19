@@ -86,7 +86,7 @@
       }
     },
     mounted () {
-      this.setTimer()
+      // this.setTimer()
     }
   }
 </script>
@@ -147,6 +147,8 @@
 
       @media screen and (max-width: 807px) {
         left: 50%;
+        width: 100%;
+        text-align: center;
 
         &.top-in { transform: perspective(900px) translateX(-50%) translateY(-130%) rotateX(90deg); }
         &.top { transform: perspective(900px) translateX(-50%) translateY(-100%) rotateX(45deg); }

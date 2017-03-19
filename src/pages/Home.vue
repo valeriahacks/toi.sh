@@ -27,6 +27,7 @@
         <h3>
           I'm a fullstack web developer that really likes:
           <scroller :words="[
+            'unit testing',
             'red pandas',
             'colour theory',
             'haskell',
@@ -36,7 +37,7 @@
             'vim',
             'unit testing',
             'wordpress',
-            'laptop stickers',
+            'excessive laptop stickers',
             'ECMAscript 6',
             'nginx',
             'italian chinotto',
@@ -243,17 +244,19 @@
             display: block;
             margin-top: 40px;
             font-size: 1.25rem;
+
+            .word {
+              border-width: 0 !important;
+            }
           }
         }
 
         @media screen and (max-width: 424px) {
           .scroller {
             .word {
-              border-width: 0 !important;
-
-              &.long { font-size: 1.1rem; }
-              &.medium { font-size: 1.4rem; }
-              &.short { font-size: 1.8rem; }
+              &.long { font-size: 1.6rem; }
+              &.medium { font-size: 1.8rem; }
+              &.short { font-size: 2.1rem; }
             }
           }
         }
