@@ -94,7 +94,7 @@
 
       &.top {
         transform: perspective(900px) translateY(-100%) rotateX(45deg);
-        opacity: 0.5;
+        opacity: 0.65;
       }
 
       &.centre {
@@ -104,7 +104,7 @@
 
       &.bottom {
         transform: perspective(900px) translateY(100%) rotateX(-45deg);
-        opacity: 0.5;
+        opacity: 0.65;
       }
 
       &.bottom-out {

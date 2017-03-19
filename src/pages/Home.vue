@@ -30,15 +30,13 @@
             'functional programming',
             'red pandas',
             'colour theory',
-            '2functional programming',
-            '2red pandas',
-            '2colour theory',
-            '3functional programming',
-            '3red pandas',
-            '3colour theory',
-            '4functional programming',
-            '4red pandas',
-            '4colour theory',
+            'haskell',
+            'docker',
+            'UX/UI design',
+            'team management',
+            'unit testing',
+            'excessive laptop stickers',
+            'modern javascript',
           ]" />
         </h3>
       </div>
@@ -165,12 +163,19 @@
     }
 
     .intro {
+      user-select: none;
+
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
-        color: #999999;
+        color: #999;
         font-weight: normal;
         text-align: center;
+
+        .scroller {
+          color: darken($luke1, 2);
+          font-weight: bold;
+        }
       }
     }
   }
