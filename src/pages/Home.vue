@@ -25,23 +25,22 @@
     <main>
       <div class="intro">
         <h3>
-          I'm a fullstack web developer that really likes
+          I'm a fullstack web developer that really likes:
           <scroller :words="[
             'red pandas',
             'colour theory',
             'haskell',
             'docker',
-            'dark roast, 2 milks',
+            'dark roast 2 milks',
             'UX/UI design',
             'team management',
             'vim',
             'unit testing',
             'wordpress',
-            'excessive laptop stickers',
+            'laptop stickers',
             'modern javascript',
             'nginx',
             'italian chinotto',
-            'functional programming',
             'purple',
             'adobe illustrator',
           ]" />
@@ -73,7 +72,7 @@
       width: 100vw;
       max-width: 970px;
       margin: 0 auto 40px;
-      padding: 100px 35px 105px;
+      padding: 100px 0;
       box-sizing: border-box;
     }
 
@@ -81,6 +80,7 @@
       flex: 1 0 320px;
       font-family: $reg;
       min-height: 470px;
+      padding: 0 calc(25px + 3vw);
 
       @media screen and (max-width: 895px) {
         margin-bottom: 50px;
@@ -183,6 +183,22 @@
           color: darken($luke1, 2);
           font-weight: bold;
           text-align: left;
+        }
+
+        @media screen and (max-width: 807px) {
+          line-height: 22px;
+
+          .scroller {
+            display: block;
+            margin-top: 40px;
+            font-size: 1.25rem;
+          }
+        }
+
+        @media screen and (max-width: 424px) {
+          .scroller {
+            font-size: 1.05rem;
+          }
         }
       }
     }

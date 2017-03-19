@@ -139,6 +139,16 @@
         border-color: rgba($luke1, 0);
         opacity: 0;
       }
+
+      @media screen and (max-width: 807px) {
+        left: 50%;
+
+        &.top-in { transform: perspective(900px) translateX(-50%) translateY(-130%) rotateX(90deg); }
+        &.top { transform: perspective(900px) translateX(-50%) translateY(-100%) rotateX(45deg); }
+        &.centre { transform: perspective(900px) translateX(-50%) translateY(0) rotateX(0deg); }
+        &.bottom { transform: perspective(900px) translateX(-50%) translateY(110%) rotateX(-45deg); }
+        &.bottom-out { transform: perspective(900px) translateX(-50%) translateY(140%) rotateX(-90deg); }
+      }
     }
   }
 </style>
