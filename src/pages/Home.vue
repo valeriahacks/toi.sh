@@ -27,16 +27,23 @@
         <h3>
           I'm a fullstack web developer that really likes
           <scroller :words="[
-            'functional programming',
             'red pandas',
             'colour theory',
             'haskell',
             'docker',
+            'dark roast, 2 milks',
             'UX/UI design',
             'team management',
+            'vim',
             'unit testing',
+            'wordpress',
             'excessive laptop stickers',
             'modern javascript',
+            'nginx',
+            'italian chinotto',
+            'functional programming',
+            'purple',
+            'adobe illustrator',
           ]" />
         </h3>
       </div>
