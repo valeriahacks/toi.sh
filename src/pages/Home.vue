@@ -175,6 +175,7 @@
         .scroller {
           color: darken($luke1, 2);
           font-weight: bold;
+          text-align: left;
         }
       }
     }
