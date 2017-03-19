@@ -3,7 +3,7 @@
     <div
       v-for="word in words"
       :class="'word ' + getWordClass(word)"
-      @click="(getWordAction(word))">
+      @click="doWordAction(word)">
       {{ word }}
     </div>
   </div>
@@ -51,11 +51,9 @@
         if (word === this.prevOutWord) return 'bottom-out'
         return ''
       },
-      getWordAction (word) {
-        if (word === this.currentWord) return this.next
-        if (word === this.nextWord) return this.next
-        if (word === this.prevWord) return this.prev
-        return () => {}
+      doWordAction (word) {
+        if (word === this.nextWord) this.next()
+        if (word === this.prevWord) this.prev()
       },
       next () {
         this.i = (this.i + 1) % this.max
@@ -68,29 +66,35 @@
 </script>
 
 <style lang="scss">
+  @import '../sass/sass-only/app';
+
   .scroller {
     display: inline-block;
     position: relative;
     height: 30px;
+    min-width: 230px;
+    transform: translateY(7px);
 
     .word {
+      line-height: 27px;
       position: absolute;
       top: 0;
       left: 0;
+      height: 100%;
       user-select: none;
       cursor: pointer;
       transform: perspective(500px) translateY(-125%) rotateX(90deg);
       opacity: 0;
-      transition: 0.5s transform ease, 1s opacity ease;
+      transition: 0.5s transform $expo, 0.5s opacity $expo;
 
       &.top-in {
         transform: perspective(900px) translateY(-130%) rotateX(90deg);
-        opacity: 1;
+        opacity: 0;
       }
 
       &.top {
         transform: perspective(900px) translateY(-100%) rotateX(45deg);
-        opacity: 1;
+        opacity: 0.5;
       }
 
       &.centre {
@@ -100,12 +104,12 @@
 
       &.bottom {
         transform: perspective(900px) translateY(100%) rotateX(-45deg);
-        opacity: 1;
+        opacity: 0.5;
       }
 
       &.bottom-out {
         transform: perspective(900px) translateY(130%) rotateX(-90deg);
-        opacity: 1;
+        opacity: 0;
       }
     }
   }

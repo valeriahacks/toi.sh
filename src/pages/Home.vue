@@ -23,23 +23,25 @@
     <math pixel-size="9" />
 
     <main>
-      <p>
-        I'm a fullstack web developer that really likes
-        <scroller :words="[
-          'functional programming',
-          'red pandas',
-          'colour theory',
-          '2functional programming',
-          '2red pandas',
-          '2colour theory',
-          '3functional programming',
-          '3red pandas',
-          '3colour theory',
-          '4functional programming',
-          '4red pandas',
-          '4colour theory',
-        ]" />
-      </p>
+      <div class="intro">
+        <h3>
+          I'm a fullstack web developer that really likes
+          <scroller :words="[
+            'functional programming',
+            'red pandas',
+            'colour theory',
+            '2functional programming',
+            '2red pandas',
+            '2colour theory',
+            '3functional programming',
+            '3red pandas',
+            '3colour theory',
+            '4functional programming',
+            '4red pandas',
+            '4colour theory',
+          ]" />
+        </h3>
+      </div>
     </main>
   </div>
 </template>
@@ -159,6 +161,16 @@
           font-style: normal;
           font-weight: 800;
         }
+      }
+    }
+
+    .intro {
+      h3 {
+        font-size: 1.45rem;
+        border-bottom: 0;
+        color: #999999;
+        font-weight: normal;
+        text-align: center;
       }
     }
   }
