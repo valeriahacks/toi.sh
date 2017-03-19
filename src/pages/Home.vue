@@ -25,7 +25,7 @@
     <main>
       <div class="intro">
         <h3>
-          I'm a fullstack web developer that really likes:
+          I'm a fullstack web developer that really likes
           <scroller :words="[
             'unit testing',
             'red pandas',
@@ -45,6 +45,13 @@
             'adobe illustrator',
           ]" />
         </h3>
+        <h4>Who I am</h4>
+        <p>
+          I've been working on and tweaking computers most of my life. My interest in making machines do things has always driven me to try new things. There's something about making a system as complex as a computer accomplish something, no matter how small, I still find amazing; which is pretty much the only reason I do what I do. (If I was in it for the fame and money, I'd be a full time Haskell dev.)
+        </p>
+        <p>
+          I spend a lot of my time working on my side-projects. You can check out my <a href="https://github.com/toish" target="_blank">github</a> to see a list of the best ones. Everything from messing around with random <a href="https://github.com/toish/toi.sh/blob/master/src/js/equations.js" target="_blank">Math functions in JS</a> for the trippy pattern you see above, to a very over-engineered <a href="https://github.com/toish/unfuck" target="_blank">Brainf*ck compiler</a>. I also have an inexplicable love for red pandas. They're pretty much the best thing ever. (Better than cats, Matt.)
+        </p>
       </div>
     </main>
   </div>
@@ -218,14 +225,14 @@
     }
 
     .intro {
-      user-select: none;
-
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
         color: #999;
         font-weight: normal;
         text-align: center;
+        margin-bottom: 70px;
+        user-select: none;
 
         @media screen and (max-width: 424px) {
           padding: 0 15px;
