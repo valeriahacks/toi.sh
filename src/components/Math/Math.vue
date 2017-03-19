@@ -140,6 +140,7 @@ export default {
     top: 0;
     left: 0;
     height: calc(100vh + 30px);
+		min-height: 640px;
     width: 100vw;
     z-index: -2;
 	  border-top-left-radius: 65px;

@@ -23,11 +23,7 @@
     <math />
 
     <main>
-      <h3>Hi</h3>
-      <p>
-        Under a bit of construction...
-      </p>
-			<img src="~assets/panda.jpg" style="width: 320px; display: block; margin: 95px auto 10px;" />
+      <h3></h3>
     </main>
   </div>
 </template>
@@ -49,12 +45,10 @@
     flex-wrap: wrap;
 
     main {
-      position: absolute;
-      top: calc(100vh + 30px);
-      left: 50vw;
-      transform: translateX(-50%);
+      position: relative;
       width: 100vw;
       max-width: 970px;
+      margin: 0 auto 40px;
       padding: 55px 35px 105px;
       box-sizing: border-box;
     }
@@ -62,6 +56,7 @@
     .greeting {
       flex: 1 0 320px;
       font-family: $reg;
+      min-height: 470px;
 
       @media screen and (max-width: 895px) {
         margin-bottom: 50px;
@@ -75,24 +70,24 @@
 
       h2 {
         font-weight: 700;
-        font-size: 6.5rem;
+        font-size: 6rem;
         line-height: 6.5rem;
       }
 
       p {
-        font-size: 2.3rem;
+        font-size: 2rem;
         margin-top: -9px;
         line-height: 47px;
 
         strong {
           display: block;
-          font-size: 3rem;
+          font-size: 2.7rem;
           font-weight: 600;
         }
 
         small {
           display: block;
-          font-size: 1.27rem;
+          font-size: 1rem;
           line-height: 26px;
           margin: 10px 0 15px;
 
