@@ -74,6 +74,14 @@
       margin: 0 auto 40px;
       padding: 100px 0;
       box-sizing: border-box;
+
+      @media screen and (max-width: 807px) {
+        padding-top: 50px;
+      }
+
+      @media screen and (max-width: 424px) {
+        padding-top: 0;
+      }
     }
 
     .greeting {
