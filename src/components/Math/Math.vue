@@ -1,5 +1,5 @@
 <template>
-  <div class="math">
+  <div class="math" :style="'height: ' + window.height + 'px'">
     <canvas
       :id="id"
       :width="window.width"
@@ -93,7 +93,7 @@ export default {
     // of the canvas element)
     scale () {
       this.window.width = window.innerWidth
-      this.window.height = window.innerHeight + 30
+      this.window.height = document.querySelector('.page.home .greeting').offsetHeight + 200
     },
 
     // Scale v over max to v over contrast, then mod against max incase v > max
@@ -139,7 +139,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: calc(100vh + 30px);
 		min-height: 640px;
     width: 100vw;
     z-index: -2;

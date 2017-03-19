@@ -23,7 +23,14 @@
     <math />
 
     <main>
-      <h3></h3>
+      <p>
+        I'm a fullstack web developer that really likes
+        <scroller :words="[
+          'functional programming',
+          'red pandas',
+          'colour theory'
+        ]" />
+      </p>
     </main>
   </div>
 </template>
@@ -31,9 +38,10 @@
 <script>
   import Math from '../components/Math/Math.vue'
   import Odometer from '../components/Odometer.vue'
+  import Scroller from '../components/Scroller.vue'
 
   export default {
-    components: { Math, Odometer }
+    components: { Math, Odometer, Scroller }
   }
 </script>
 
@@ -77,7 +85,7 @@
       p {
         font-size: 2rem;
         margin-top: -9px;
-        line-height: 47px;
+        line-height: 39px;
 
         strong {
           display: block;
