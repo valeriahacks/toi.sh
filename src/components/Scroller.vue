@@ -47,13 +47,18 @@
       }
     },
     methods: {
+      getLengthClass (word) {
+        if (word.length <= 7) return 'short'
+        if (word.length > 7 && word.length <= 10) return 'medium'
+        if (word.length > 10) return 'long'
+      },
       getWordClass (word) {
-        if (word === this.currentWord) return 'centre'
-        if (word === this.nextWord) return 'top'
-        if (word === this.prevWord) return 'bottom'
-        if (word === this.nextInWord) return 'top-in'
-        if (word === this.prevOutWord) return 'bottom-out'
-        return ''
+        if (word === this.currentWord) return this.getLengthClass(word) + ' centre'
+        if (word === this.nextWord) return this.getLengthClass(word) + ' top'
+        if (word === this.prevWord) return this.getLengthClass(word) + ' bottom'
+        if (word === this.nextInWord) return this.getLengthClass(word) + ' top-in'
+        if (word === this.prevOutWord) return this.getLengthClass(word) + ' bottom-out'
+        return this.getLengthClass(word)
       },
       doWordAction (word) {
         if (word === this.nextWord) this.next()

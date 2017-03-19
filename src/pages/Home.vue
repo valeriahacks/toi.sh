@@ -197,7 +197,9 @@
 
         @media screen and (max-width: 424px) {
           .scroller {
-            font-size: 1.05rem;
+            .word.long { font-size: 1.05rem; }
+            .word.medium { font-size: 1.3rem; }
+            .word.short { font-size: 1.55rem; }
           }
         }
       }
