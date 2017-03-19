@@ -31,14 +31,13 @@
             'colour theory',
             'haskell',
             'docker',
-            'dark roast 2 milks',
+            'dark roast',
             'UX/UI design',
-            'team management',
             'vim',
             'unit testing',
             'wordpress',
             'laptop stickers',
-            'modern javascript',
+            'ECMAscript 6',
             'nginx',
             'italian chinotto',
             'purple',
@@ -92,6 +91,7 @@
 
       @media screen and (max-width: 895px) {
         margin-bottom: 50px;
+        max-width: calc(100vw - 117px);
       }
 
       h2,
@@ -104,6 +104,16 @@
         font-weight: 700;
         font-size: 6rem;
         line-height: 6.5rem;
+
+        @media screen and (max-width: 807px) {
+          font-size: 5rem;
+          line-height: 5.7rem;
+        }
+
+        @media screen and (max-width: 424px) {
+          font-size: 4.5rem;
+          line-height: 5.3rem;
+        }
       }
 
       p {
@@ -111,10 +121,28 @@
         margin-top: -9px;
         line-height: 39px;
 
+        @media screen and (max-width: 807px) {
+          font-size: 1.75rem;
+          line-height: 35px;
+        }
+
+        @media screen and (max-width: 424px) {
+          font-size: 1.5rem;
+          line-height: 29px;
+        }
+
         strong {
           display: block;
           font-size: 2.7rem;
           font-weight: 600;
+
+          @media screen and (max-width: 807px) {
+            font-size: 1.95rem;
+          }
+
+          @media screen and (max-width: 424px) {
+            font-size: 1.75rem;
+          }
         }
 
         small {
@@ -123,12 +151,23 @@
           line-height: 26px;
           margin: 10px 0 15px;
 
+          @media screen and (max-width: 424px) {
+            margin: 0 0 15px;
+          }
+
           span {
             display: inline-block;
             padding: 0 7px 2px;
             color: $luke1;
             background: #FFF;
             border-radius: 5px;
+
+            @media screen and (max-width: 424px) {
+              padding: 0 0 0;
+              color: #fff;
+              background: none;
+              margin: 1px;
+            }
           }
         }
 
@@ -187,6 +226,10 @@
         font-weight: normal;
         text-align: center;
 
+        @media screen and (max-width: 424px) {
+          padding: 0 15px;
+        }
+
         .scroller {
           color: darken($luke1, 2);
           font-weight: bold;
@@ -205,9 +248,13 @@
 
         @media screen and (max-width: 424px) {
           .scroller {
-            .word.long { font-size: 1.05rem; }
-            .word.medium { font-size: 1.3rem; }
-            .word.short { font-size: 1.55rem; }
+            .word {
+              border-width: 0 !important;
+
+              &.long { font-size: 1.1rem; }
+              &.medium { font-size: 1.4rem; }
+              &.short { font-size: 1.8rem; }
+            }
           }
         }
       }
