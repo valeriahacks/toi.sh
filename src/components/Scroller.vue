@@ -86,7 +86,7 @@
       }
     },
     mounted () {
-      // this.setTimer()
+      this.setTimer()
     }
   }
 </script>
