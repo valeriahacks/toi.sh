@@ -10,6 +10,9 @@
 </template>
 
 <script>
+  const UP = Symbol('up')
+  const DOWN = Symbol('down')
+
   export default {
     props: {
       words: {
@@ -19,7 +22,8 @@
     },
     data () {
       return {
-        i: 0
+        i: 0,
+        direction: UP
       }
     },
     computed: {
@@ -57,15 +61,18 @@
       },
       next () {
         this.i = (this.i + 1) % this.max
+        this.direction = DOWN
         this.resetTimer()
       },
       prev () {
         this.i = ((this.i - 1 % this.max) + this.max) % this.max
+        this.direction = UP
         this.resetTimer()
       },
       setTimer () {
         this.timer = setInterval(() => {
-          this.next()
+          if (this.direction === DOWN) this.next()
+          if (this.direction === UP) this.prev()
         }, 2000)
       },
       resetTimer () {
