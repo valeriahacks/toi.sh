@@ -94,36 +94,42 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
       height: 100%;
       user-select: none;
       cursor: pointer;
+      padding: 0 6px;
+      border-bottom: 1px solid rgba($luke1, 0);
       transform: perspective(500px) translateY(-125%) rotateX(90deg);
       opacity: 0;
-      transition: 0.5s transform $expo, 0.5s opacity $expo;
+      transition: all 0.5s $expo;
 
       &.top-in {
         transform: perspective(900px) translateY(-130%) rotateX(90deg);
+        border-color: rgba($luke1, 0);
         opacity: 0;
       }
 
       &.top {
         transform: perspective(900px) translateY(-100%) rotateX(45deg);
+        border-color: rgba($luke1, 0);
         opacity: 0.65;
       }
 
       &.centre {
         transform: perspective(900px) translateY(0) rotateX(0deg);
+        border-color: rgba($luke1, 0.75);
         opacity: 1;
       }
 
       &.bottom {
-        transform: perspective(900px) translateY(100%) rotateX(-45deg);
+        transform: perspective(900px) translateY(110%) rotateX(-45deg);
+        border-color: rgba($luke1, 0);
         opacity: 0.65;
       }
 
       &.bottom-out {
-        transform: perspective(900px) translateY(130%) rotateX(-90deg);
+        transform: perspective(900px) translateY(140%) rotateX(-90deg);
+        border-color: rgba($luke1, 0);
         opacity: 0;
       }
     }

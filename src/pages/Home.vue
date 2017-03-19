@@ -66,7 +66,7 @@
       width: 100vw;
       max-width: 970px;
       margin: 0 auto 40px;
-      padding: 55px 35px 105px;
+      padding: 100px 35px 105px;
       box-sizing: border-box;
     }
 
