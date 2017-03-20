@@ -1,23 +1,27 @@
 <template>
   <div class="page home">
     <div class="greeting">
-      <h2>
-        <odometer delay="700" speed="95">Hello!</odometer>
-      </h2>
-      <p>
-        <strong>My name’s <em>Toish.</em></strong>
-        I make software for fun.
-        <small>
-          <span>JS (ES6)</span>
-          -
-          <span>Typescript</span>
-          -
-          <span>PHP</span>
-          -
-          <span>Haskell</span>
-        </small>
-        <a href="http://www.google.com/recaptcha/mailhide/d?k=011zVk7iGdP7_to08FCy1HsA==&c=p8MbtM9S4D2FMU1Rnmu2SQ==" target="_blank">Let's talk.</a>
-      </p>
+      <div class="col">
+        <h2>
+          <odometer delay="700" speed="95">Hello!</odometer>
+        </h2>
+        <p>
+          <strong>My name’s <em>Toish.</em></strong>
+          I make software for fun.
+          <small>
+            <span>JS (ES6)</span>
+            -
+            <span>Typescript</span>
+            -
+            <span>PHP</span>
+            -
+            <span>Haskell</span>
+          </small>
+        </p>
+      </div>
+      <div class="col">
+        <a href="mailto:toish@toi.sh" target="_blank" class="btn">Let's talk.</a>
+      </div>
     </div>
 
     <math pixel-size="9" />
@@ -96,27 +100,38 @@
       width: 100vw;
       max-width: 970px;
       margin: 0 auto 40px;
-      padding: 100px 0;
+      padding: 270px 0;
       box-sizing: border-box;
 
       @media screen and (max-width: 807px) {
-        padding-top: 50px;
+        padding-top: 190px;
       }
 
       @media screen and (max-width: 424px) {
-        padding-top: 0;
+        padding-top: 170px;
       }
     }
 
     .greeting {
       flex: 1 0 320px;
+      display: flex;
+      flex-wrap: wrap;
       font-family: $reg;
-      min-height: 470px;
+      min-height: 240px;
       padding: 0 calc(25px + 3vw);
 
       @media screen and (max-width: 895px) {
         margin-bottom: 50px;
         max-width: calc(100vw - 117px);
+      }
+
+      .col {
+        position: relative;
+        margin-left: 50px;
+
+        &:first-child {
+          margin-left: 0;
+        }
       }
 
       h2,
@@ -138,6 +153,47 @@
         @media screen and (max-width: 424px) {
           font-size: 4.5rem;
           line-height: 5.3rem;
+        }
+      }
+
+      a.btn {
+        position: absolute;
+        bottom: 0;
+        display: inline-block;
+        color: #FFF;
+        font-size: 1.5rem;
+        line-height: 40px;
+        padding: 0 15px 3px;
+        text-decoration: none;
+        border: 1px solid #FFF;
+        border-radius: 5px;
+        transform: translateY(-24px);
+        width: 80px;
+        text-align: center;
+
+        &:hover {
+          transform: translateY(-19px);
+
+          &::after {
+            bottom: -2px;
+          }
+        }
+
+        &:active {
+          background: #FFF;
+          color: $luke1;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          left: -1px;
+          top: -1px;
+          bottom: -7px;
+          width: 100%;
+          border: inherit;
+          border-radius: inherit;
         }
       }
 
@@ -193,44 +249,6 @@
               background: none;
               margin: 1px;
             }
-          }
-        }
-
-        a {
-          position: relative;
-          display: inline-block;
-          color: #FFF;
-          font-size: 1.5rem;
-          line-height: 40px;
-          padding: 0 15px 3px;
-          text-decoration: none;
-          border: 1px solid #FFF;
-          border-radius: 5px;
-          transform: translateY(0px);
-
-          &:hover {
-            transform: translateY(5px);
-
-            &::after {
-              bottom: -2px;
-            }
-          }
-
-          &:active {
-            background: #FFF;
-            color: $luke1;
-          }
-
-          &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            left: -1px;
-            top: -1px;
-            bottom: -7px;
-            width: 100%;
-            border: inherit;
-            border-radius: inherit;
           }
         }
 

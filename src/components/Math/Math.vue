@@ -93,7 +93,7 @@ export default {
     // of the canvas element)
     scale () {
       this.window.width = window.innerWidth
-      this.window.height = document.querySelector('.page.home .greeting').offsetHeight + 200
+      this.window.height = document.querySelector('.page.home .greeting').offsetHeight + 380
     },
 
     // Scale v over max to v over contrast, then mod against max incase v > max
@@ -139,7 +139,6 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-		min-height: 640px;
     width: 100vw;
     z-index: -2;
 	  border-top-left-radius: 65px;
