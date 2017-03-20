@@ -33,7 +33,7 @@
         <h3>
           I'm a web developer with <experience-timer /> of experience
           <br />
-          and really likes
+          that really likes
           <scroller :words="[
             'unit testing',
             'red pandas',
