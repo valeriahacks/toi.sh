@@ -20,8 +20,8 @@
         </p>
       </div>
       <div class="col bottom">
-        <p>So why not get in touch?</p>
-        <a href="mailto:toish@toi.sh" target="_blank" class="btn">Let's talk.</a>
+        <p>I check my email a lot.</p>
+        <a href="mailto:toish@toi.sh" class="btn">Let's talk.</a>
       </div>
     </div>
 
@@ -124,7 +124,7 @@
     }
 
     .greeting {
-      flex: 1 0 320px;
+      flex: 1 0 1px;
       display: flex;
       flex-wrap: wrap;
       font-family: $reg;
@@ -140,17 +140,19 @@
         position: relative;
 
         &.bottom {
+          flex: 1 1 320px;
           display: flex;
           flex-wrap: wrap;
           flex-direction: column;
           justify-content: flex-end;
-          max-width: 260px;
+          align-items: flex-end;
           padding-bottom: 24px;
           margin-left: 50px;
 
-          @media screen and (max-width: 662px) {
+          @media screen and (max-width: 762px) {
             flex: 1 1 100vw;
             margin-left: 0;
+            align-items: flex-start;
 
             p {
               display: none;
@@ -158,8 +160,8 @@
           }
 
           p {
-            font-size: 1.7rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
           }
         }
       }
