@@ -6,14 +6,14 @@
           <!-- SVG file injected here by webpack -->
         </router-link>
       </div>
-      <!--nav>
+      <nav>
         <router-link to="/">
           Home
         </router-link>
         <router-link to="resume">
           Resumé
         </router-link>
-      </nav-->
+      </nav>
     </header>
     <router-view/>
   </div>
