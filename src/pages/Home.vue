@@ -44,8 +44,17 @@
             'ECMAscript 6',
             'nginx',
             'chinotto',
+            'github',
             'purple',
             'illustrator',
+            '/r/webdev',
+            'vue js',
+            'ginger chews',
+            'react',
+            'mitril',
+            'SEO',
+            'web marketing',
+            'git svn',
           ]" />
           <span class="hide-in-mobile">for some reason</span>
         </h3>
