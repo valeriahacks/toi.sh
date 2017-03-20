@@ -68,7 +68,7 @@
             'mitril',
             'SEO',
             'web marketing',
-            'git svn',
+            'git scm',
             'SASS',
             'babel',
             'eslint',
