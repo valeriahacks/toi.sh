@@ -19,7 +19,8 @@
           </small>
         </p>
       </div>
-      <div class="col">
+      <div class="col bottom">
+        <p>So why not get in touch?</p>
         <a href="mailto:toish@toi.sh" target="_blank" class="btn">Let's talk.</a>
       </div>
     </div>
@@ -137,10 +138,29 @@
 
       .col {
         position: relative;
-        margin-left: 50px;
 
-        &:first-child {
-          margin-left: 0;
+        &.bottom {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: flex-end;
+          max-width: 260px;
+          padding-bottom: 24px;
+          margin-left: 50px;
+
+          @media screen and (max-width: 662px) {
+            flex: 1 1 100vw;
+            margin-left: 0;
+
+            p {
+              display: none;
+            }
+          }
+
+          p {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+          }
         }
       }
 
@@ -167,9 +187,8 @@
       }
 
       a.btn {
-        position: absolute;
         bottom: 0;
-        display: inline-block;
+        display: block;
         color: #FFF;
         font-size: 1.5rem;
         line-height: 40px;
@@ -177,12 +196,12 @@
         text-decoration: none;
         border: 1px solid #FFF;
         border-radius: 5px;
-        transform: translateY(-24px);
+        transform: translateY(0);
         width: 80px;
         text-align: center;
 
         &:hover {
-          transform: translateY(-19px);
+          transform: translateY(5px);
 
           &::after {
             bottom: -2px;
