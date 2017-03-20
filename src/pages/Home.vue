@@ -20,6 +20,10 @@
         </p>
       </div>
       <div class="col bottom">
+        <div class="social">
+          <a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a>
+          <a href="https://github.com/toish" target="_blank" v-html="require('../assets/svg/icon-github.svg')"></a>
+        </div>
         <p>I check my email a lot.</p>
         <a href="mailto:toish@toi.sh" class="btn">Let's talk.</a>
       </div>
@@ -148,6 +152,25 @@
           align-items: flex-end;
           padding-bottom: 24px;
           margin-left: 50px;
+
+          .social {
+            margin-bottom: 15px;
+
+            svg {
+              width: 40px;
+              margin: 0 6px;
+              transform: scale(1);
+              transition: transform 0.3s $expo;
+
+              &:hover {
+                transform: scale(1.1);
+              }
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
 
           @media screen and (max-width: 762px) {
             flex: 1 1 100vw;
