@@ -23,7 +23,8 @@
     <math pixel-size="9" />
 
     <main>
-      <div class="intro">
+
+      <div class="facts">
         <h3>
           I'm a web developer with <experience-timer /> of experience
           <br />
@@ -48,6 +49,9 @@
           ]" />
           <span class="hide-in-mobile">for some reason</span>
         </h3>
+      </div>
+
+      <div class="intro">
         <h4>Who I am</h4>
         <p>
           I've been working on and tweaking computers most of my life. My interest in making machines do things has always driven me to try new things. There's something about making a system as complex as a computer accomplish something, no matter how small, I still find amazing; which is pretty much the only reason I do what I do. (If I was in it for the fame and money, I'd be a full time Haskell dev.)
@@ -228,14 +232,15 @@
       }
     }
 
-    .intro {
+    .facts {
+      margin: 10px 0 70px;
+
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
         color: #999;
         font-weight: normal;
         text-align: center;
-        margin-bottom: 70px;
         user-select: none;
 
         @media screen and (max-width: 424px) {
@@ -249,7 +254,11 @@
         }
 
         @media screen and (max-width: 807px) {
-          line-height: 22px;
+          line-height: 35px;
+
+          .hide-in-mobile {
+            display: none;
+          }
 
           .scroller {
             display: block;
