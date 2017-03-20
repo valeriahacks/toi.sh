@@ -76,7 +76,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['vendor']
     }),
     new PrerenderSpaPlugin(
-      Path.join(__dirname, '../dist'),
+      path.join(__dirname, '../dist'),
       [ '/' ]
     )
   ]
