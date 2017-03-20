@@ -25,7 +25,9 @@
     <main>
       <div class="intro">
         <h3>
-          I'm a fullstack web developer that really likes
+          I'm a web developer with <experience-timer /> of experience
+          <br />
+          and really likes
           <scroller :words="[
             'unit testing',
             'red pandas',
@@ -37,13 +39,14 @@
             'vim',
             'unit testing',
             'wordpress',
-            'excessive laptop stickers',
+            'laptop stickers',
             'ECMAscript 6',
             'nginx',
-            'italian chinotto',
+            'chinotto',
             'purple',
-            'adobe illustrator',
+            'illustrator',
           ]" />
+          <span class="hide-in-mobile">for some reason</span>
         </h3>
         <h4>Who I am</h4>
         <p>
@@ -61,9 +64,10 @@
   import Math from '../components/Math/Math.vue'
   import Odometer from '../components/Odometer.vue'
   import Scroller from '../components/Scroller.vue'
+  import ExperienceTimer from '../components/ExperienceTimer.vue'
 
   export default {
-    components: { Math, Odometer, Scroller }
+    components: { Math, Odometer, Scroller, ExperienceTimer }
   }
 </script>
 

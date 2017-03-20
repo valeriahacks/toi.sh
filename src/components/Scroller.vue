@@ -98,7 +98,7 @@
     display: inline-block;
     position: relative;
     height: 30px;
-    min-width: 230px;
+    min-width: 140px;
     transform: translateY(7px);
 
     .word {
