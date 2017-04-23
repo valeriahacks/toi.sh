@@ -86,7 +86,11 @@ export default {
   methods: {
     // Calculate the result of the current function at pixel (x,y) at frame n
     calculate (x, y, n) {
-      return this.equations[this.equation](x, y, n)
+      if (this.equations[this.equation]) {
+        return this.equations[this.equation](x, y, n)
+      } else {
+        return 1
+      }
     },
 
     // Scale v over max to v over contrast, then mod against max incase v > max

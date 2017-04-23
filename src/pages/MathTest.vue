@@ -46,21 +46,27 @@
         equation: 0,
         equations: equations.map((fn) => ({fn, good: null})),
         newFn: '(x, y, n) => x',
-        contrast: 0.4,
-        pixelSize: 7,
-        detail: 1.25
+        contrast: 0.5,
+        pixelSize: 8,
+        detail: 1
       }
     },
     computed: {
       current () {
-        return this.equations[this.equation]
+        if (this.equations[this.equation]) {
+          return this.equations[this.equation]
+        } else {
+          return () => 1
+        }
       },
       extraEquations () {
+        let fns = this.newFn.split(' !!! ').map((fn) => { return '((x, y, n)=>{ try{return (' + fn + ')(x, y, n)} catch (e) { return () => { return 1 }} })' }).join(',')
         /* eslint-disable */
         try {
-          return eval('[' + this.newFn + ']')
+          console.log(fns)
+          return eval('[' + fns + ']')
         } catch (e) {
-          console.log(e)
+          console.log("VUE LEVEL", e)
           return []
         }
         /* eslint-enable */
