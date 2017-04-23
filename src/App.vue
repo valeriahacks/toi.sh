@@ -14,10 +14,25 @@
           Résumé
         </router-link>
       </nav>
+
+      <undulator
+        v-if="$route.name !== 'home'"
+        style="top: 145px; z-index: -1;"
+        colour="#9525a8"
+        :flip="true"
+        :max="3" />
     </header>
     <router-view/>
   </div>
 </template>
+
+<script>
+  import Undulator from './components/Math/Undulator.vue'
+
+  export default {
+    components: { Undulator }
+  }
+</script>
 
 <style lang="scss">
   @import './sass/main.scss';

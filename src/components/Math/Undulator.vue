@@ -26,13 +26,28 @@
   const LAST = Symbol('last')
 
   export default {
+    props: {
+      flip: {
+        type: Boolean,
+        default: false
+      },
+      colour: {
+        type: String,
+        default: null
+      },
+      max: {
+        type: Number,
+        default: 5
+      }
+    },
     data () {
+      let _this = this
       return {
         frame: 0,
         windowWidth: 0,
         config: {
           width: 24,
-          max: 5,
+          max: _this.max,
           bodyBorder: 24,
           animation: {
             strength: 4,
@@ -55,6 +70,10 @@
         out.push(this.getValidNumber(out.slice(-1)[0], SECONDLAST))
         out.push(this.getValidNumber(out.slice(-1)[0], LAST))
 
+        if (this.flip) {
+          out = out.map((n) => this.config.max - n)
+        }
+
         return out
       },
       lines () {
@@ -64,6 +83,12 @@
         let out = 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px;'
         out += 'left: ' + this.config.bodyBorder + 'px;'
         out += 'width: calc(100% - ' + (this.config.bodyBorder * 2) + 'px);'
+        if (this.flip) out += 'transform: rotate(180deg);'
+        if (this.colour !== null) {
+          out += 'color: ' + this.colour + ';'
+        } else {
+          out += 'color: #FFF;'
+        }
         return out
       },
       widthRatio () {
@@ -118,10 +143,18 @@
       },
       determineLine (number, key, stream) {
         // If first line
-        if (key === 0) return this.makeLine(number, tops.pit)
+        if (this.flip) {
+          if (key === 0) return this.makeLine(number, tops.spire)
+        } else {
+          if (key === 0) return this.makeLine(number, tops.pit)
+        }
 
         // If last line
-        if (key >= stream.length - 1) return this.makeLine(number, tops.pit)
+        if (this.flip) {
+          if (key >= stream.length - 1) return this.makeLine(number, tops.spire)
+        } else {
+          if (key >= stream.length - 1) return this.makeLine(number, tops.pit)
+        }
 
         // If line in the middle
         if ((stream[key - 1] > number) && (stream[key + 1] < number)) {
@@ -147,7 +180,7 @@
       setInterval(() => this.frame++, 100)
 
       this.scale()
-      window.addEventListener('resize', this.scale.bind(this))
+      window.addEventListener('resize', this.scale)
     }
   }
 </script>
@@ -173,7 +206,7 @@
 
       rect,
       path {
-        fill: $tertiary;
+        fill: currentColor;
       }
     }
   }

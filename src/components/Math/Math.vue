@@ -6,7 +6,7 @@
       :height="masthead.height"
       :style="canvasStyle">
     </canvas>
-    <undulator v-if="!clean" />
+    <undulator v-if="!clean" colour="#F9F9F9" />
     <div class="label">
       #{{ equation }}
     </div>
