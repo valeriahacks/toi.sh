@@ -319,7 +319,7 @@
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
-        color: $lightgrey;
+        color: $inverse;
         font-weight: normal;
         text-align: center;
         user-select: none;
