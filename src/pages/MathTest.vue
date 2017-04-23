@@ -30,7 +30,8 @@
           :extra-equations="extraEquations"
           :contrast="contrast"
           :pixel-size="pixelSize"
-          :detail="detail"/>
+          :detail="detail"
+          :clean="true" />
   </div>
 </template>
 
@@ -47,7 +48,7 @@
         newFn: '(x, y, n) => x',
         contrast: 0.4,
         pixelSize: 7,
-        detail: 1
+        detail: 1.25
       }
     },
     computed: {

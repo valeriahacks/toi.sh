@@ -36,7 +36,13 @@ let vm = new Vue({
     scale () {
       Vue.nextTick(() => {
         this.masthead.width = window.innerWidth
-        this.masthead.height = (this.$route.name === 'home' ? document.querySelector('.page.home .greeting').offsetHeight + 380 : 0)
+        if (this.$route.name === 'home') {
+          this.masthead.height = document.querySelector('.page.home .greeting').offsetHeight + 380
+        } else if (this.$route.name === 'math-test') {
+          this.masthead.height = 600
+        } else {
+          return 0
+        }
       })
     }
   },

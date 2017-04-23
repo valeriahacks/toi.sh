@@ -6,7 +6,7 @@
       :height="masthead.height"
       :style="canvasStyle">
     </canvas>
-    <undulator />
+    <undulator v-if="!clean" />
     <div class="label">
       #{{ equation }}
     </div>
@@ -23,22 +23,26 @@ import Undulator from './Undulator.vue'
 export default {
   props: {
     pixelSize: {
-      default: 7
+      default: 8
     },
     detail: {
       default: 1
     },
     frameRate: {
-      default: 6
+      default: 4
     },
     contrast: {
-      default: 0.4
+      default: 0.5
     },
     equation: {
       default: Math.floor(Math.random() * (equations.length - 1))
     },
     extraEquations: {
       default: () => []
+    },
+    clean: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -105,13 +109,13 @@ export default {
           this.ctx.fillRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize)
         }
       }
-      this.frame += 1
+      this.frame += (1 / this.frameRate)
     },
 
     // Start animation using requestAnimationFrame()
     start () {
       let draw = () => {
-        if ((this.realFrame % this.frameRate) === 0) this.drawFrame()
+        if (this.realFrame % this.frameRate === 0) this.drawFrame()
         this.realFrame += 1
         window.requestAnimationFrame(draw)
       }
