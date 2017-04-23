@@ -11,7 +11,7 @@
           Home
         </router-link>
         <router-link to="resume">
-          Resumé
+          Résumé
         </router-link>
       </nav>
     </header>
