@@ -9,16 +9,18 @@ body {
   margin: 0;
   background: $tertiary;
   border: 24px solid $tertiary;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
   color: $tertiary;
   font-family: $reg;
   min-height: 100vh;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
 }
 
 header {
   display: flex;
   padding: 50px calc(25px + 3vw) 0;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
   background: rgba(255, 255, 255, 0);
   transition: 0.4s all $expo;
 
@@ -100,7 +102,7 @@ header {
   padding: 25px 0;
 
   &:not(.home) {
-    width: calc(100vw - 180px);
+    width: calc(100vw - 240px);
     max-width: 970px;
     margin: 0 auto;
     padding:  30px 60px;
@@ -108,6 +110,11 @@ header {
     box-shadow: 0px 4px 41px rgba(45, 37, 37, 0.08);
     transform: translateY(100%);
     opacity: 0;
+
+    @media screen and (max-width: 500px) {
+      width: calc(100vw - 150px);
+      padding:  30px 25px;
+    }
 
     @keyframes slideIn {
       from {
@@ -130,6 +137,7 @@ header {
     margin: 10px 0;
     border-bottom: 12px solid;
     line-height: 79px;
+    color: $inverse;
   }
 
   main {
