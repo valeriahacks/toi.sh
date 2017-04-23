@@ -1,9 +1,9 @@
 <template>
-  <div class="math" :style="'height: ' + window.height + 'px'">
+  <div class="math" :style="'height: ' + masthead.height + 'px'">
     <canvas
       :id="id"
-      :width="window.width"
-      :height="window.height"
+      :width="masthead.width"
+      :height="masthead.height"
       :style="canvasStyle">
     </canvas>
     <undulator />
@@ -46,10 +46,7 @@ export default {
       id: 'c-' + (new Date()).getTime(),
       interval: null,
       frame: 0,
-      window: {
-        height: 0,
-        width: 0
-      }
+      masthead: this.$root.masthead
     }
   },
   computed: {
@@ -68,10 +65,10 @@ export default {
 
     // Calculated states the the drawFrame() function needs
     rows () {
-      return (this.window.width / this.pixelSize) * this.detail
+      return (this.masthead.width / this.pixelSize) * this.detail
     },
     columns () {
-      return (this.window.height / this.pixelSize) * this.detail
+      return (this.masthead.height / this.pixelSize) * this.detail
     },
     increment () {
       return 1 / this.detail
@@ -86,14 +83,6 @@ export default {
     // Calculate the result of the current function at pixel (x,y) at frame n
     calculate (x, y, n) {
       return this.equations[this.equation](x, y, n)
-    },
-
-    // Adjust the size of the canvas element
-    // (this.window.* are bound to the height and width properties
-    // of the canvas element)
-    scale () {
-      this.window.width = window.innerWidth
-      this.window.height = document.querySelector('.page.home .greeting').offsetHeight + 380
     },
 
     // Scale v over max to v over contrast, then mod against max incase v > max
@@ -121,8 +110,6 @@ export default {
   },
   mounted () {
     this.interval = setInterval(this.drawFrame.bind(this), this.frameRate)
-    this.scale()
-    window.addEventListener('resize', this.scale.bind(this))
   },
   destroyed () {
     clearInterval(this.interval)

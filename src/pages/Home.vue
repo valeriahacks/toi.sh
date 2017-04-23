@@ -1,38 +1,39 @@
 <template>
   <div class="page home">
-    <div class="greeting">
-      <div class="col">
-        <h2>
-          <odometer delay="700" speed="95">Hello!</odometer>
-        </h2>
-        <p>
-          <strong>My name’s <em>Toish.</em></strong>
-          I make software for fun.
-          <small>
-            <span>JS (ES6)</span>
-            -
-            <span>Typescript</span>
-            -
-            <span>PHP</span>
-            -
-            <span>Haskell</span>
-          </small>
-        </p>
-      </div>
-      <div class="col bottom">
-        <div class="social">
-          <a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a>
-          <a href="https://github.com/toish" target="_blank" v-html="require('../assets/svg/icon-github.svg')"></a>
+    <div class="masthead" :style="'height: ' + ($root.masthead.height - 190) + 'px'">
+      <div class="greeting">
+        <div class="col">
+          <h2>
+            <odometer delay="700" speed="95">Hello!</odometer>
+          </h2>
+          <p>
+            <strong>My name’s <em>Toish.</em></strong>
+            I make software for fun.
+            <small>
+              <span>JS (ES6)</span>
+              -
+              <span>Typescript</span>
+              -
+              <span>PHP</span>
+              -
+              <span>Haskell</span>
+            </small>
+          </p>
         </div>
-        <p>I check my email a lot.</p>
-        <a href="mailto:toish@toi.sh" class="btn">Let's talk.</a>
+        <div class="col bottom">
+          <div class="social">
+            <a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a>
+            <a href="https://github.com/toish" target="_blank" v-html="require('../assets/svg/icon-github.svg')"></a>
+          </div>
+          <p>I check my email a lot.</p>
+          <a href="mailto:toish@toi.sh" class="btn">Let's talk.</a>
+        </div>
       </div>
+
+      <math pixel-size="9" />
     </div>
 
-    <math pixel-size="9" />
-
     <main>
-
       <div class="facts">
         <h3>
           I'm a web developer with <experience-timer /> of experience
@@ -69,16 +70,6 @@
           <span class="hide-in-mobile">for some reason</span>
         </h3>
       </div>
-
-      <div class="intro">
-        <h4>Who I am</h4>
-        <p>
-          I've been working on and tweaking computers most of my life. My interest in making machines do things has always driven me to try new things. There's something about making a system as complex as a computer accomplish something, no matter how small, I still find amazing; which is pretty much the only reason I do what I do. (If I was in it for the fame and money, I'd be a full time Haskell dev.)
-        </p>
-        <p>
-          I spend a lot of my time working on my side-projects. You can check out my <a href="https://github.com/toish" target="_blank">github</a> to see a list of the best ones. Everything from messing around with random <a href="https://github.com/toish/toi.sh/blob/master/src/js/equations.js" target="_blank">Math functions in JS</a> for the trippy pattern you see above, to a very over-engineered <a href="https://github.com/toish/unfuck" target="_blank">Brainf*ck compiler</a>. I also have an inexplicable love for red pandas. They're pretty much the best thing ever. (Better than cats, Matt.)
-        </p>
-      </div>
     </main>
   </div>
 </template>
@@ -101,12 +92,16 @@
     display: flex;
     flex-wrap: wrap;
 
+    .masthead {
+      width: 100%;
+    }
+
     main {
       position: relative;
       width: 100vw;
       max-width: 970px;
       margin: 0 auto 40px;
-      padding: 270px 0;
+      padding: 75px 0;
       box-sizing: border-box;
 
       @media screen and (max-width: 807px) {
@@ -306,23 +301,31 @@
 
     .facts {
       margin: 10px 0 70px;
+      position: relative;
+      z-index: 10;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 50vw);
+        height: 100%;
+        width: 100vw;
+        background: linear-gradient(45deg, $primary, $secondary);
+        z-index: -1;
+      }
 
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
-        color: $inverse;
+        color: $tertiary;
         font-weight: normal;
         text-align: center;
         user-select: none;
 
         @media screen and (max-width: 424px) {
           padding: 0 15px;
-        }
-
-        .scroller {
-          color: darken($primary, 2);
-          font-weight: bold;
-          text-align: left;
         }
 
         @media screen and (max-width: 807px) {

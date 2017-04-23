@@ -111,6 +111,7 @@ header {
   h3 {
     display: block;
     font-size: 4rem;
+    padding: 0 20px 30px;
     margin: 10px 0;
     border-bottom: 12px solid;
     line-height: 79px;
@@ -123,25 +124,12 @@ header {
     }
 
     h4 {
-      color: $tertiary;
+      color: $inverse;
       font-size: 2.6rem;
       margin-bottom: 22px;
       margin-top: 90px;
       padding: 11px 19px 16px;
       position: relative;
-      z-index: 10;
-
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: calc(50% - 50vw);
-        height: 100%;
-        width: 100vw;
-        background: linear-gradient(45deg, $primary, $secondary);
-        z-index: -1;
-      }
     }
 
     p {
