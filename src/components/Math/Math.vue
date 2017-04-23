@@ -29,7 +29,7 @@ export default {
       default: 1
     },
     frameRate: {
-      default: 150
+      default: 5
     },
     contrast: {
       default: 0.4
@@ -44,7 +44,7 @@ export default {
   data () {
     return {
       id: 'c-' + (new Date()).getTime(),
-      interval: null,
+      realFrame: 0,
       frame: 0,
       masthead: this.$root.masthead
     }
@@ -106,14 +106,21 @@ export default {
         }
       }
       this.frame += 1
+    },
+
+    // Start animation using requestAnimationFrame()
+    start () {
+      let draw = () => {
+        console.log((this.realFrame % 2) === 0, this.realFrame)
+        if ((this.realFrame % this.frameRate) === 0) this.drawFrame()
+        this.realFrame += 1
+        window.requestAnimationFrame(draw)
+      }
+      window.requestAnimationFrame(draw)
     }
   },
   mounted () {
-    this.interval = setInterval(this.drawFrame.bind(this), this.frameRate)
-  },
-  destroyed () {
-    clearInterval(this.interval)
-    window.onscroll = null
+    this.start()
   },
   components: { Undulator }
 }
