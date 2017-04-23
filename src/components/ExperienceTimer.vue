@@ -1,16 +1,13 @@
 <template>
   <div class="experience-timer">
     <span class="years">
-      <strong>{{ years }}</strong>yr,
-    </span>
-    <span class="hours">
-      <strong>{{ hours }}</strong>hr,
-    </span>
-    <span class="minutes">
-      <strong>{{ minutes }}</strong>m,
-    </span>
-    <span class="seconds">
-      <strong>{{ seconds }}</strong>s
+      <strong>{{ years }}</strong>
+      <strong class="fraction">
+        <sup>{{ fraction.numerator }}</sup>
+        &frasl;
+        <sub>{{ fraction.denominator }}</sub>
+      </strong>
+      years
     </span>
   </div>
 </template>
@@ -32,6 +29,9 @@
       years () {
         return this.duration.years()
       },
+      months () {
+        return this.duration.months()
+      },
       hours () {
         return this.duration.hours()
       },
@@ -40,6 +40,18 @@
       },
       seconds () {
         return this.duration.seconds()
+      },
+      fraction () {
+        let gcd = this.gcd(this.months, 12)
+        return {
+          numerator: this.months / gcd,
+          denominator: 12 / gcd
+        }
+      }
+    },
+    methods: {
+      gcd (a, b) {
+        return b ? this.gcd(b, a % b) : a
       }
     },
     mounted () {
@@ -55,5 +67,16 @@
 
   .experience-timer {
     display: inline-block;
+
+    .fraction {
+      letter-spacing: 0px;
+      font-size: 19px;
+      line-height: 0px;
+      margin-left: -2px;
+      margin-right: 2px;
+
+      sup { margin-right: -3px; }
+      sub { margin-left: -3px; }
+    }
 	}
 </style>
