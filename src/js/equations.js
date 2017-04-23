@@ -1,7 +1,5 @@
 /* eslint-disable */
 
-/* eslint-disable */
-
 export default [
 /*0*/	(x, y, n) => Math.floor(Math.sin(y) * Math.cos(x) * n * 255),
 /*1*/	(x, y, n) => (~n ^ y | ~x) + Math.sqrt(x + n) * 255,
@@ -32,5 +30,7 @@ export default [
 /*26*/	(x, y, n) => Math.floor(Math.sin(x) * y * n ^ (y | x)),
 /*27*/	(x, y, n) => Math.sin(x + n * 5 & y - n & n + 100) * 255,
 /*28*/	(x, y, n) => n * y << (((n | x) << y | n & x) >> x),
-/*29*/	(x, y, n) => n & x | y - x ^ n * (x | y)
+/*29*/	(x, y, n) => n & x | y - x ^ n * (x | y),
+/*30*/	(x, y, n) => (n + 200) * (Math.sin(x) * Math.cos(y * n)),
+/*31*/	(x, y, n) => ((x, y, n) => n*(y+x))(x, y, n)
 ]

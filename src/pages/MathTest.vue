@@ -23,7 +23,9 @@
     <input type="range" min="4" max="50" step="1" v-model="pixelSize" />
     <label>&nbsp;| Detail</label>
     <input type="range" min="1" max="2.5" step="0.1" v-model="detail" />
+    <label>&nbsp;| Custom Fcns&nbsp;</label>
     <input v-model="newFn" />
+    <label>&nbsp;&nbsp;{{ (extraEquations ? '✔' : '✖') }}</label>
     <div class="out"><textarea>{{ output }}</textarea></div>
 
     <math :equation="equation"
@@ -63,11 +65,10 @@
         let fns = this.newFn.split(' !!! ').map((fn) => { return '((x, y, n)=>{ try{return (' + fn + ')(x, y, n)} catch (e) { return () => { return 1 }} })' }).join(',')
         /* eslint-disable */
         try {
-          console.log(fns)
           return eval('[' + fns + ']')
         } catch (e) {
           console.log("VUE LEVEL", e)
-          return []
+          return false
         }
         /* eslint-enable */
       },
@@ -78,6 +79,13 @@
         good = good.map((fn) => fn.replace(/\) {\s*/g, ') => '))
         good = good.map((fn) => fn.replace(/\sreturn\s/g, ' '))
         good = good.map((fn) => fn.replace(/;\s}/g, ','))
+        if (this.extraEquations) {
+          let extras = this.extraEquations.map((fn) => fn.toString())
+          extras = extras.map((fn) => fn.replace('(x, y, n)=>{ try{return (', ''))
+          extras = extras.map((fn) => fn.replace(')(x, y, n)} catch (e) { return () => { return 1 }} }', ''))
+          extras = extras.map((fn) => fn + ';')
+          good = good.concat(extras)
+        }
         good = good.map((fn, i) => '/*' + i + '*/\t' + fn)
         if (good.length) good[good.length - 1] = good[good.length - 1].slice(0, -1)
 
