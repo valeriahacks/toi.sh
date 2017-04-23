@@ -29,7 +29,7 @@ export default {
       default: 1
     },
     frameRate: {
-      default: 5
+      default: 6
     },
     contrast: {
       default: 0.4
@@ -111,7 +111,6 @@ export default {
     // Start animation using requestAnimationFrame()
     start () {
       let draw = () => {
-        console.log((this.realFrame % 2) === 0, this.realFrame)
         if ((this.realFrame % this.frameRate) === 0) this.drawFrame()
         this.realFrame += 1
         window.requestAnimationFrame(draw)

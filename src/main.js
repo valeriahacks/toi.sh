@@ -21,7 +21,8 @@ const router = new VueRouter({
  */
 
 /* eslint-disable no-new */
-new Vue({
+let vm = new Vue({
+  name: 'root',
   el: '#app',
   template: '<App/>',
   components: { App },
@@ -33,13 +34,22 @@ new Vue({
   },
   methods: {
     scale () {
-      this.masthead.width = window.innerWidth
-      this.masthead.height = document.querySelector('.page.home .greeting').offsetHeight + 380
+      Vue.nextTick(() => {
+        this.masthead.width = window.innerWidth
+        this.masthead.height = (this.$route.name === 'home' ? document.querySelector('.page.home .greeting').offsetHeight + 380 : 0)
+      })
     }
   },
   mounted () {
     this.scale()
-    window.addEventListener('resize', this.scale)
+
+    Vue.nextTick(() => {
+      window.addEventListener('resize', this.scale)
+    })
   },
   router
+})
+
+router.afterEach((to, from) => {
+  vm.scale()
 })
