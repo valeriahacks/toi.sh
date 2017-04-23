@@ -55,7 +55,6 @@
             'ECMAscript 6',
             'nginx',
             'github',
-            'secure shell',
             'illustrator',
             'vue js',
             'react',
@@ -301,7 +300,7 @@
 
     .facts {
       margin: 40px 0;
-      padding: 20px 25px;
+      padding: 20px 0;
       position: relative;
       z-index: 10;
 
@@ -317,6 +316,9 @@
         left: calc(50% - 50vw);
         height: 100%;
         width: 100vw;
+        border-top: 10px solid #fff;
+        border-bottom: 10px solid #fff;
+        box-shadow: 0 0 40px 0px rgba(56, 36, 41, 0.25);
         background: linear-gradient(45deg, $primary, $secondary);
         z-index: -1;
       }

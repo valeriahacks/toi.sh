@@ -73,7 +73,7 @@
       display: inline-block;
       height: 1.4em;
       line-height: 1.3;
-      padding: 2px 8px 4px;
+      padding: 1px 8px 3px;
       margin: 0 2px;
 
       .fraction {
