@@ -38,6 +38,10 @@
       max: {
         type: Number,
         default: 5
+      },
+      width: {
+        type: Number,
+        default: 24
       }
     },
     data () {
@@ -46,7 +50,7 @@
         frame: 0,
         windowWidth: 0,
         config: {
-          width: 24,
+          width: _this.width,
           max: _this.max,
           bodyBorder: 24,
           animation: {
@@ -126,7 +130,11 @@
         this.windowWidth = (window.innerWidth - (this.config.bodyBorder * 2))
       },
       animationEffect (key) {
-        return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key)
+        if (this.flip) {
+          return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key) + 10
+        } else {
+          return this.config.animation.strength * Math.sin((this.frame * this.config.animation.speed) + key)
+        }
       },
       lineCSS (line, key) {
         let top = line.height + this.animationEffect(key)

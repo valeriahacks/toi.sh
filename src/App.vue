@@ -17,10 +17,12 @@
 
       <undulator
         v-if="$route.name !== 'home'"
-        style="top: 145px; z-index: -1;"
+        style="top: 145px; z-index: -1; max-height: 110px; height: 110px;"
         colour="#9525a8"
         :flip="true"
-        :max="3" />
+        :max="3"
+        :width="19" />
+
     </header>
     <router-view/>
   </div>
