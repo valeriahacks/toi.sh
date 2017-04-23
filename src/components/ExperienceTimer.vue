@@ -7,8 +7,8 @@
         &frasl;
         <sub>{{ fraction.denominator }}</sub>
       </strong>
-      years
     </span>
+    years
   </div>
 </template>
 
@@ -68,15 +68,24 @@
   .experience-timer {
     display: inline-block;
 
-    .fraction {
-      letter-spacing: 0px;
-      font-size: 19px;
-      line-height: 0px;
-      margin-left: -2px;
-      margin-right: 2px;
+    .years {
+      border: 1px solid $tertiary;
+      display: inline-block;
+      height: 1.4em;
+      line-height: 1.3;
+      padding: 2px 8px 4px;
+      margin: 0 2px;
 
-      sup { margin-right: -3px; }
-      sub { margin-left: -3px; }
+      .fraction {
+        letter-spacing: 0px;
+        font-size: 19px;
+        line-height: 0px;
+        margin-left: -2px;
+        margin-right: 1px;
+
+        sup { margin-right: -3px; }
+        sub { margin-left: -3px; }
+      }
     }
 	}
 </style>

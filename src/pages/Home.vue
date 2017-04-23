@@ -100,8 +100,8 @@
       position: relative;
       width: 100vw;
       max-width: 970px;
-      margin: 0 auto 40px;
-      padding: 75px 0;
+      margin: 0 auto;
+      padding: 35px 0;
       box-sizing: border-box;
 
       @media screen and (max-width: 807px) {
@@ -300,9 +300,14 @@
     }
 
     .facts {
-      margin: 10px 0 70px;
+      margin: 40px 0;
+      padding: 20px 25px;
       position: relative;
       z-index: 10;
+
+      @media screen and (max-width: 424px) {
+        padding: 20px 25px 55px;
+      }
 
       &::after {
         content: "";
