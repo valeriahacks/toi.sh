@@ -53,17 +53,12 @@
             'wordpress',
             'laptop stickers',
             'ECMAscript 6',
-            'français',
             'nginx',
-            'chinotto',
             'github',
             'secure shell',
-            'purple',
             'illustrator',
-            '/r/webdev',
             'vue js',
             'expresso',
-            'ginger chews',
             'react',
             'mitril',
             'SEO',
@@ -72,7 +67,6 @@
             'SASS',
             'babel',
             'eslint',
-            'ubuntu',
             'strict types'
           ]" />
           <span class="hide-in-mobile">for some reason</span>
