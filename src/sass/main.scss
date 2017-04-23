@@ -123,27 +123,25 @@ header {
     }
 
     h4 {
-      color: $inverse;
+      color: $tertiary;
       font-size: 2.6rem;
       margin-bottom: 22px;
       margin-top: 90px;
-      padding: 0 0 12px 18px;
-      border-bottom: 3px solid;
+      padding: 11px 19px 16px;
       position: relative;
+      z-index: 10;
 
-      &::after,
-      &::before {
+      &::after {
         content: "";
         display: block;
         position: absolute;
-        bottom: -12px;
-        width: 3px;
-        height: 9px;
-        background: currentColor;
+        top: 0;
+        left: calc(50% - 50vw);
+        height: 100%;
+        width: 100vw;
+        background: linear-gradient(45deg, $primary, $secondary);
+        z-index: -1;
       }
-
-      &::before { left: 0; }
-      &::after { right: 0; }
     }
 
     p {

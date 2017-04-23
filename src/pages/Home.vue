@@ -229,7 +229,7 @@
 
         &:active {
           background: #FFF;
-          color: $luke1;
+          color: $primary;
         }
 
         &::after {
@@ -287,7 +287,7 @@
           span {
             display: inline-block;
             padding: 0 7px 2px;
-            color: $luke1;
+            color: $primary;
             background: #FFF;
             border-radius: 5px;
 
