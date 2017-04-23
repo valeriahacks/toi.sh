@@ -59,11 +59,6 @@ header {
     flex: 1 1 auto;
     justify-content: flex-end;
 
-    // To be removed
-    @media screen and (max-width: 500px) {
-      display: none;
-    }
-
     a {
       display: inline-flex;
       align-items: center;

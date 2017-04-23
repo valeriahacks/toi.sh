@@ -7,9 +7,6 @@
         </router-link>
       </div>
       <nav>
-        <router-link to="/">
-          Home
-        </router-link>
         <router-link to="resume">
           Résumé
         </router-link>
