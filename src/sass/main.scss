@@ -106,6 +106,21 @@ header {
     padding:  30px 60px;
     background: #FFF;
     box-shadow: 0px 4px 41px rgba(45, 37, 37, 0.08);
+    transform: translateY(100%);
+    opacity: 0;
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    animation: slideIn 1550ms $expo 0s 1 normal;
+    animation-fill-mode: forwards;
   }
 
   h3 {
