@@ -133,7 +133,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../sass/sass-only/_app.scss';
+  @import '../../sass/sass-only/app';
 
   .math {
     position: absolute;
@@ -154,7 +154,7 @@ export default {
       height: 100%;
       width: 100%;
       z-index: 1;
-      background: linear-gradient(45deg, $luke1, $luke3);
+      background: linear-gradient(45deg, $primary, $secondary);
       mix-blend-mode: multiply;
 
       @supports not (mix-blend-mode: multiply) {

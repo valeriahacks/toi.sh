@@ -110,38 +110,38 @@
       user-select: none;
       cursor: pointer;
       padding: 0 6px;
-      border-bottom: 1px solid rgba($luke1, 0);
+      border-bottom: 1px solid rgba($primary, 0);
       transform: perspective(500px) translateY(-125%) rotateX(90deg);
       opacity: 0;
       transition: all 0.5s $expo;
 
       &.top-in {
         transform: perspective(900px) translateY(-130%) rotateX(90deg);
-        border-color: rgba($luke1, 0);
+        border-color: rgba($primary, 0);
         opacity: 0;
       }
 
       &.top {
         transform: perspective(900px) translateY(-100%) rotateX(45deg);
-        border-color: rgba($luke1, 0);
+        border-color: rgba($primary, 0);
         opacity: 0.65;
       }
 
       &.centre {
         transform: perspective(900px) translateY(0) rotateX(0deg);
-        border-color: rgba($luke1, 0.75);
+        border-color: rgba($primary, 0.75);
         opacity: 1;
       }
 
       &.bottom {
         transform: perspective(900px) translateY(110%) rotateX(-45deg);
-        border-color: rgba($luke1, 0);
+        border-color: rgba($primary, 0);
         opacity: 0.65;
       }
 
       &.bottom-out {
         transform: perspective(900px) translateY(140%) rotateX(-90deg);
-        border-color: rgba($luke1, 0);
+        border-color: rgba($primary, 0);
         opacity: 0;
       }
 

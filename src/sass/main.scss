@@ -7,11 +7,11 @@
 
 body {
   margin: 0;
-  background: #FFF;
-  border: 24px solid #FFF;
+  background: $tertiary;
+  border: 24px solid $tertiary;
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
-  color: $warmgrey;
+  color: $tertiary;
   font-family: $reg;
   min-height: 100vh;
 }
@@ -23,7 +23,7 @@ header {
   transition: 0.4s all $expo;
 
   &.interior {
-    background: darken($luke1, 2);
+    background: darken($primary, 2);
     padding: 25px calc(25px + 3vw);
 
     .logo {
@@ -118,12 +118,12 @@ header {
 
   main {
     ::selection {
-      background: $luke1;
+      background: $primary;
       color: #FFF;
     }
 
     h4 {
-      color: #454545;
+      color: $lightgrey;
       font-size: 2.6rem;
       margin-bottom: 22px;
       margin-top: 90px;
@@ -150,7 +150,7 @@ header {
       font-family: $body;
       line-height: 25px;
       font-size: 1rem;
-      color: #555;
+      color: $lightgrey;
       padding: 0 18px;
 
       a {

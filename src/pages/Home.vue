@@ -319,7 +319,7 @@
       h3 {
         font-size: 1.45rem;
         border-bottom: 0;
-        color: #999;
+        color: $lightgrey;
         font-weight: normal;
         text-align: center;
         user-select: none;
@@ -329,7 +329,7 @@
         }
 
         .scroller {
-          color: darken($luke1, 2);
+          color: darken($primary, 2);
           font-weight: bold;
           text-align: left;
         }

@@ -153,6 +153,8 @@
 </script>
 
 <style lang="scss">
+  @import '../../sass/sass-only/app';
+
   .undulator {
     position: absolute;
     bottom: 0;
@@ -171,7 +173,7 @@
 
       rect,
       path {
-        fill: #FFF;
+        fill: $tertiary;
       }
     }
   }
