@@ -7,7 +7,7 @@
             <odometer delay="700" speed="95">Hello!</odometer>
           </h2>
           <p>
-            <strong>My name’s <em>Toish.</em></strong>
+            <strong>My name’s <em>Graham.</em></strong>
             I make software for fun.
             <small>
               <span>JS (ES6)</span>
