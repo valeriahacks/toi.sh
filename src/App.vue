@@ -7,8 +7,8 @@
         </router-link>
       </div>
       <nav>
-        <router-link to="resume">
-          Résumé
+        <router-link to="portfolio">
+          Portfolio
         </router-link>
       </nav>
 

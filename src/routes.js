@@ -5,9 +5,9 @@ export default [
     component: require('./pages/Home')
   },
   {
-    name: 'resume',
-    path: '/resume',
-    component: view('Resume')
+    name: 'portfolio',
+    path: '/portfolio',
+    component: view('Portfolio')
   },
   {
     name: 'projects',
