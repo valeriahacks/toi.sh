@@ -33,5 +33,6 @@ export default [
 /*29*/	(x, y, n) => n & x | y - x ^ n * (x | y),
 /*30*/	(x, y, n) => (n + 200) * (Math.sin(x) * Math.cos(y * n)),
 /*31*/	(x, y, n) => n * (y + x),
-/*32*/	(x, y, n) => y * x * (Math.sin(n % (y*x)) + 15)
+/*32*/	(x, y, n) => y * x * (Math.sin(n % (y*x)) + 15),
+/*33*/  (x, y, n) => (n*(x/y))|(x^y)
 ]
