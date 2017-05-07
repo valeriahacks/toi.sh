@@ -8,9 +8,10 @@
 
 <script>
   import Odometer from '../components/Odometer.vue'
+  import Undulator from '../components/Math/Undulator.vue'
 
   export default {
-    components: { Odometer }
+    components: { Odometer, Undulator }
   }
 </script>
 
