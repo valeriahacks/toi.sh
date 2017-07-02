@@ -41,7 +41,7 @@
       },
       width: {
         type: Number,
-        default: 24
+        default: 18
       }
     },
     data () {
