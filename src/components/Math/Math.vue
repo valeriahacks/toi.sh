@@ -7,9 +7,6 @@
       :style="canvasStyle">
     </canvas>
     <undulator v-if="!clean" colour="#F9F9F9" />
-    <div class="label">
-      #{{ equation }}
-    </div>
   </div>
 </template>
 
@@ -23,13 +20,13 @@ import Undulator from './Undulator.vue'
 export default {
   props: {
     pixelSize: {
-      default: 8
+      default: 10
     },
     detail: {
       default: 1
     },
     frameRate: {
-      default: 4
+      default: 6
     },
     contrast: {
       default: 0.5
@@ -67,7 +64,7 @@ export default {
       return (this.canvas ? this.canvas.getContext('2d') : null)
     },
 
-    // Calculated states the the drawFrame() function needs
+    // Calculated states that the drawFrame() function needs
     rows () {
       return (this.masthead.width / this.pixelSize) * this.detail
     },
@@ -93,7 +90,7 @@ export default {
       }
     },
 
-    // Scale v over max to v over contrast, then mod against max incase v > max
+    // Scale v over max to v over contrast, then mod against max in case v > max
     bound (v, max) {
       return Math.floor(((v / max) * (this.contrast * max)) + (max - (this.contrast * max))) % max
     },
@@ -166,15 +163,6 @@ export default {
     canvas {
       position: absolute;
       z-index: 0;
-    }
-
-    .label {
-      position: fixed;
-      bottom: 8px;
-      right: 8px;
-      font-size: 0.5rem;
-      z-index: 1;
-      color: #909090;
     }
   }
 </style>
