@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <math pixel-size="9" />
+      <math :pixel-size="10" />
     </div>
 
     <main>

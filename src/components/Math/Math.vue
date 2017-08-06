@@ -11,6 +11,7 @@
 </template>
 
 <script>
+/* global ImageData */
 // Eqution Hashmap
 import equations from '../../js/equations.js'
 
@@ -26,7 +27,7 @@ export default {
       default: 1
     },
     frameRate: {
-      default: 6
+      default: 3
     },
     contrast: {
       default: 0.5
@@ -98,18 +99,39 @@ export default {
     // Return the color representing value v
     cellColour (v) {
       let boundedValue = this.bound(v, 255)
-      return 'rgb(' + boundedValue + ', ' + boundedValue + ', ' + boundedValue + ')'
+      return (255 << 24) |    // alpha
+        ((boundedValue % 255) << 16) |  // blue
+        ((boundedValue % 255) << 8) |  // green
+         (boundedValue % 255)           // red
     },
 
     // Draw the next or first frame to the canvas
     drawFrame () {
+      let frameImageData = new ImageData(this.rows, this.columns)
+      let buf = new ArrayBuffer(frameImageData.data.length)
+      var buf8 = new Uint8ClampedArray(buf)
+      var frame = new Uint32Array(buf)
+
+      let index = 0
       for (let x = 0; x < this.rows; x += this.increment) {
         for (let y = 0; y < this.columns; y += this.increment) {
           let result = this.calculate(x, y, this.frame)
-          this.ctx.fillStyle = this.cellColour(result)
-          this.ctx.fillRect(x * this.pixelSize, y * this.pixelSize, this.pixelSize, this.pixelSize)
+          frame[index] = this.cellColour(result)
+          index++
         }
       }
+
+      frameImageData.data.set(buf8)
+
+      let tempCanvas = document.createElement('canvas')
+      tempCanvas.width = this.rows
+      tempCanvas.height = this.columns
+      let tempCtx = tempCanvas.getContext('2d')
+      tempCtx.putImageData(frameImageData, 0, 0)
+
+      this.ctx.imageSmoothingEnabled = false
+      this.ctx.drawImage(tempCanvas, 0, 0, this.rows * this.pixelSize, this.columns * this.pixelSize)
+
       this.frame += (1 / this.frameRate)
     },
 
