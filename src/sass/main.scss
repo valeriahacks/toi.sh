@@ -5,6 +5,10 @@
   @include font-smoothing(on);
 }
 
+#app {
+  position: relative;
+}
+
 body {
   margin: 0;
   background: $tertiary;

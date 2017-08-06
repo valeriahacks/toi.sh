@@ -140,7 +140,7 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     z-index: -2;
 	  border-top-left-radius: 65px;
 	  border-top-right-radius: 65px;

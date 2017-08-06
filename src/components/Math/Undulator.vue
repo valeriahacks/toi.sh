@@ -41,7 +41,7 @@
       },
       width: {
         type: Number,
-        default: 18
+        default: 22
       }
     },
     data () {
@@ -52,6 +52,7 @@
         config: {
           width: _this.width,
           max: _this.max,
+          contentBorder: 0,
           bodyBorder: 24,
           animation: {
             strength: 4,
@@ -62,7 +63,7 @@
     },
     computed: {
       canFit () {
-        return Math.ceil(this.windowWidth / this.config.width)
+        return Math.ceil((this.windowWidth - (this.config.bodyBorder * 2)) / this.config.width)
       },
       stream () {
         let out = []
@@ -85,8 +86,8 @@
       },
       containerCSS () {
         let out = 'max-height: ' + (((this.config.max + 1) * this.config.width) + (this.config.animation.strength * 2)) + 'px;'
-        out += 'left: ' + this.config.bodyBorder + 'px;'
-        out += 'width: calc(100% - ' + (this.config.bodyBorder * 2) + 'px);'
+        out += 'left: ' + this.config.contentBorder + 'px;'
+        out += 'width: calc(100% - ' + (this.config.contentBorder * 2) + 'px);'
         if (this.flip) out += 'transform: rotate(180deg);'
         if (this.colour !== null) {
           out += 'color: ' + this.colour + ';'
@@ -127,7 +128,7 @@
         }
       },
       scale () {
-        this.windowWidth = (window.innerWidth - (this.config.bodyBorder * 2))
+        this.windowWidth = (window.innerWidth - (this.config.contentBorder * 2))
       },
       animationEffect (key) {
         if (this.flip) {
@@ -180,8 +181,6 @@
         if ((stream[key - 1] < number) && (stream[key + 1] < number)) {
           return this.makeLine(number, tops.spire)
         }
-
-        console.warn('ahh', key, stream[key - 1], number)
       }
     },
     mounted () {
