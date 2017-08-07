@@ -22,7 +22,7 @@
         </div>
         <div class="col bottom">
           <div class="social">
-            <a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a>
+            <!--a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a-->
             <a href="https://github.com/toish" target="_blank" v-html="require('../assets/svg/icon-github.svg')"></a>
           </div>
           <p style="text-align:right;line-height:25px;">I check my email a lot.</p>
