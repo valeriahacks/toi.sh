@@ -7,9 +7,9 @@
         </router-link>
       </div>
       <nav>
-        <router-link to="portfolio">
+        <a href="http://github.com/toish">
           Portfolio
-        </router-link>
+        </a>
       </nav>
 
       <undulator
