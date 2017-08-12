@@ -24,6 +24,7 @@
           <div class="social">
             <!--a href="https://twitter.com/toishpanda" target="_blank" v-html="require('../assets/svg/icon-twitter.svg')"></a-->
             <a href="https://github.com/toish" target="_blank" v-html="require('../assets/svg/icon-github.svg')"></a>
+            <a href="https://www.linkedin.com/in/graham-pegg/" target="_blank" v-html="require('../assets/svg/icon-linkedIN.svg')"></a>
           </div>
           <p style="text-align:right;line-height:25px;">I check my email a lot.</p>
           <a href="mailto:toish@toi.sh" class="btn">Let's talk.</a>
