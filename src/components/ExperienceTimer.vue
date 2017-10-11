@@ -2,7 +2,7 @@
   <div class="experience-timer">
     <span class="years">
       <strong>{{ years }}</strong>
-      <strong class="fraction">
+      <strong class="fraction" v-if="fraction.numerator !== 0">
         <sup>{{ fraction.numerator }}</sup>
         &frasl;
         <sub>{{ fraction.denominator }}</sub>
