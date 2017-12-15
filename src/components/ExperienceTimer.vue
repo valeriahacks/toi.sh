@@ -18,7 +18,7 @@
   export default {
     data () {
       return {
-        since: moment('2013-09-23 12:00:00'),
+        since: moment('2013-09-16 15:54:00'),
         now: moment()
       }
     },
