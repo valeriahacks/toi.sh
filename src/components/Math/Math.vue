@@ -99,9 +99,9 @@ export default {
     // Return the color representing value v
     cellColour (v) {
       let boundedValue = this.bound(v, 255)
-      return (255 << 24) |    // alpha
+      return (255 << 24) |              // alpha
         ((boundedValue % 255) << 16) |  // blue
-        ((boundedValue % 255) << 8) |  // green
+        ((boundedValue % 255) << 8) |   // green
          (boundedValue % 255)           // red
     },
 
