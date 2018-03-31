@@ -13,5 +13,6 @@ export default [
   /*9*/	function(t,e,n){return n*(t/e)|t^e},
   /*10*/  function(x, y, n){return Math.sin(n/50)*x*y},
   /*11*/	function(x, y, n){return Math.log10(Math.log(n))*n*x},
-  /*12*/	function(x, y, n){return x|(y*n)}
+  /*12*/	function(x, y, n){return x|(y*n)},
+  /*13*/	function(x, y, n){return ((n*1.2)/x)*x*y}
 ]
